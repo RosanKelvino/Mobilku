@@ -153,64 +153,9 @@
 
             </div>
         </section>
-
     </div>
 
-<<div id="loginModal" class="modal-overlay">
-    <div class="auth-card">
-        <span class="close-modal">&times;</span>
-        
-        <div class="auth-header">
-            <div class="auth-logo">
-                <i class="fa-solid fa-car-side"></i>
-            </div>
-            <h2>Selamat Datang</h2>
-            <p>Masuk untuk mulai sewa mobil impianmu</p>
-        </div>
 
-        <form class="auth-form">
-            <div class="floating-group">
-                <i class='bx bxs-user'></i>
-                <input type="text" placeholder="Username" required>
-            </div>
-            
-            <div class="floating-group">
-                <i class='bx bxs-lock-alt'></i>
-                <input type="password" placeholder="Password" required>
-            </div>
-
-           
-
-            <button type="submit" class="btn-gradient-auth">
-                <span>Masuk Sekarang</span>
-            </button>
-        </form>
-
-        <div class="auth-footer">
-            <p>Belum punya akun? <a href="#">Daftar Gratis</a></p>
-        </div>
-    </div>
-</div>
-<script>
- const modal = document.getElementById('loginModal');
-const btnMasuk = document.querySelector('.btn-transparent'); 
-const closeBtn = document.querySelector('.close-modal');
-
-btnMasuk.addEventListener('click', (e) => {
-    e.preventDefault();
-    modal.style.display = 'flex';
-});
-
-closeBtn.addEventListener('click', () => {
-    modal.style.display = 'none';
-});
-
-window.addEventListener('click', (e) => {
-    if (e.target === modal) {
-        modal.style.display = 'none';
-    }
-});
-</script>
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<?php include 'login.php'; ?>
 </body>
 </html>

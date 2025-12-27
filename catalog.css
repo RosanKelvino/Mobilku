@@ -1,0 +1,186 @@
+/* Layout Dua Kolom */
+.main-wrapper {
+    display: flex;
+    gap: 30px;
+    padding-top: 40px;
+    padding-bottom: 60px;
+    align-items: flex-start; 
+}
+
+.filter-sidebar {
+    width: 280px;
+    flex-shrink: 0; 
+    padding: 25px;
+    position: sticky;
+    top: 100px; 
+    height: fit-content;
+}
+
+.filter-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.filter-header h3 { font-size: 18px; display: flex; align-items: center; gap: 8px; }
+.reset-link { font-size: 12px; color: var(--accent-color); text-decoration: none; }
+
+.filter-group { margin-bottom: 25px; }
+.filter-group h4 { font-size: 14px; margin-bottom: 15px; color: var(--text-white); }
+
+.checkbox-container {
+    display: block;
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 14px;
+    color: var(--text-grey);
+    user-select: none;
+}
+
+.checkbox-container input { opacity: 0; cursor: pointer; height: 0; width: 0; }
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 18px;
+    width: 18px;
+    background-color: rgba(255,255,255,0.1);
+    border-radius: 4px;
+    transition: 0.2s;
+}
+
+.checkbox-container:hover input ~ .checkmark { background-color: rgba(255,255,255,0.2); }
+.checkbox-container input:checked ~ .checkmark { background-color: var(--primary-color); }
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 6px;
+    top: 2px;
+    width: 4px;
+    height: 9px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+.checkbox-container input:checked ~ .checkmark:after { display: block; }
+
+.chip-container { display: flex; gap: 10px; }
+.filter-chip {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid transparent;
+    color: var(--text-grey);
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 12px;
+    cursor: pointer;
+}
+.filter-chip.active, .filter-chip:hover {
+    background: rgba(43, 89, 255, 0.2);
+    border-color: var(--primary-color);
+    color: white;
+}
+
+.price-inputs { display: flex; align-items: center; gap: 10px; }
+.glass-input {
+    width: 100%;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: white;
+    padding: 8px;
+    border-radius: 8px;
+    outline: none;
+    font-size: 12px;
+}
+.glass-input:focus { border-color: var(--primary-color); }
+
+.w-100 { width: 100%; }
+.mt-20 { margin-top: 20px; }
+
+.catalog-content {
+    flex-grow: 1;
+}
+
+.catalog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 25px;
+    margin-bottom: 30px;
+}
+
+.catalog-header span { font-size: 14px; color: var(--text-grey); }
+.catalog-header strong { color: white; }
+
+.sort-box { display: flex; align-items: center; gap: 10px; font-size: 14px; }
+.glass-select {
+    background: rgba(0,0,0,0.3);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 5px 10px;
+    border-radius: 6px;
+    outline: none;
+    cursor: pointer;
+}
+.glass-select option { background: #0f0f19; }
+
+.three-col {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 25px;
+}
+
+.status-badge {
+    font-size: 10px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: 700;
+}
+.status-badge.available { background: rgba(76, 209, 55, 0.2); color: #4cd137; }
+.status-badge.booked { background: rgba(255, 71, 87, 0.2); color: #ff4757; }
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 50px;
+}
+
+.page-link {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: var(--text-grey);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 10px;
+    transition: 0.3s;
+    font-size: 14px;
+}
+
+.page-link:hover, .page-link.active {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 15px rgba(43, 89, 255, 0.5);
+}
+
+.dots { color: var(--text-grey); }
+
+@media (max-width: 900px) {
+    .main-wrapper { flex-direction: column; }
+    .filter-sidebar { width: 100%; position: relative; top: 0; margin-bottom: 20px; }
+    .three-col { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+    .three-col { grid-template-columns: 1fr; }
+    .catalog-header { flex-direction: column; gap: 15px; align-items: flex-start; }
+}
