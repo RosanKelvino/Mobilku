@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MobilKu - Sewa Mobil Premium</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -17,13 +18,14 @@
         
         <nav class="navbar glass-panel">
             <div class="logo">
-                <i class=""></i> Mobilku 
+                
+                <i class="fa-solid fa-car-side"></i> MobilKu 
             </div>
             <ul class="nav-links">
                 <li><a href="#" class="active">Beranda</a></li>
-                <li><a href="catalog.html">Katalog</a></li>
-                <li><a href="services.html">Layanan</a></li>
-                <li><a href="about.html">Tentang</a></li>
+                <li><a href="catalog.php">Katalog</a></li>
+                <li><a href="services.php">Layanan</a></li>
+                <li><a href="about.php">Tentang</a></li>
             </ul>
             <div class="nav-actions">
                 <button class="btn-transparent">Masuk</button>
@@ -153,5 +155,62 @@
         </section>
 
     </div>
+
+<<div id="loginModal" class="modal-overlay">
+    <div class="auth-card">
+        <span class="close-modal">&times;</span>
+        
+        <div class="auth-header">
+            <div class="auth-logo">
+                <i class="fa-solid fa-car-side"></i>
+            </div>
+            <h2>Selamat Datang</h2>
+            <p>Masuk untuk mulai sewa mobil impianmu</p>
+        </div>
+
+        <form class="auth-form">
+            <div class="floating-group">
+                <i class='bx bxs-user'></i>
+                <input type="text" placeholder="Username" required>
+            </div>
+            
+            <div class="floating-group">
+                <i class='bx bxs-lock-alt'></i>
+                <input type="password" placeholder="Password" required>
+            </div>
+
+           
+
+            <button type="submit" class="btn-gradient-auth">
+                <span>Masuk Sekarang</span>
+            </button>
+        </form>
+
+        <div class="auth-footer">
+            <p>Belum punya akun? <a href="#">Daftar Gratis</a></p>
+        </div>
+    </div>
+</div>
+<script>
+ const modal = document.getElementById('loginModal');
+const btnMasuk = document.querySelector('.btn-transparent'); 
+const closeBtn = document.querySelector('.close-modal');
+
+btnMasuk.addEventListener('click', (e) => {
+    e.preventDefault();
+    modal.style.display = 'flex';
+});
+
+closeBtn.addEventListener('click', () => {
+    modal.style.display = 'none';
+});
+
+window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        modal.style.display = 'none';
+    }
+});
+</script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 </body>
 </html>
