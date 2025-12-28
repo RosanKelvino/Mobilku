@@ -63,23 +63,6 @@
             </div>
         </header>
         
-        <div class="search-widget glass-panel">
-            <div class="input-group">
-                <label><i class=""></i> Lokasi Ambil</label>
-                <input type="text" placeholder="Pilih kota...">
-            </div>
-            <div class="divider"></div>
-            <div class="input-group">
-                <label><i class=""></i> Tanggal Ambil</label>
-                <input type="date">
-            </div>
-            <div class="divider"></div>
-            <div class="input-group">
-                <label><i class=""></i> Tanggal Kembali</label>
-                <input type="date">
-            </div>
-            <button class="btn-search"><i class="fa-solid fa-magnifying-glass"></i> Cari Mobil</button>
-        </div>
 
         <section class="car-section">
             <div class="section-header">
@@ -92,7 +75,7 @@
                 <div class="car-card glass-panel">
                     <div class="card-top">
                         <span class="car-tag">Matic</span>
-                        <i class=""></i>
+                        <i class="fa-regular fa-heart"></i>
                     </div>
                     <div class="car-img-container">
                         <img src="Audi_A8L__2025_-removebg-preview.png" alt="Car">
@@ -101,8 +84,8 @@
                         <h4>Audi A8 L</h4>
                         <p class="price">Rp 1.500.000 <span>/ hari</span></p>
                         <div class="specs">
-                            <span><i class=""></i> Bensin</span>
-                            <span><i class=""></i> 4 Kursi</span>
+                            <span><i class="fa-solid fa-gas-pump"></i> Bensin</span>
+                            <span><i class="fa-solid fa-couch"></i> 4 Kursi</span>
                         </div>
                         <button class="btn-rent" onclick="window.location.href='booking.php'">Sewa Sekarang</button>
                     </div>
@@ -111,7 +94,7 @@
                 <div class="car-card glass-panel">
                     <div class="card-top">
                         <span class="car-tag">Manual</span>
-                        <i class=""></i>
+                        <i class="fa-regular fa-heart"></i>
                     </div>
                     <div class="car-img-container">
                         <img src="89ef60bbc7ef4849edfb2bde884a10d0-removebg-preview.png" alt="Car">
@@ -120,8 +103,8 @@
                         <h4>Jeep Cherokee</h4>
                         <p class="price">Rp 900.000 <span>/ hari</span></p>
                         <div class="specs">
-                            <span><i class=""></i> Solar</span>
-                            <span><i class=""></i> 6 Kursi</span>
+                            <span><i class="fa-solid fa-gas-pump"></i> Solar</span>
+                            <span><i class="fa-solid fa-couch"></i> 6 Kursi</span>
                         </div>
                        <button class="btn-rent" onclick="window.location.href='booking.php'">Sewa Sekarang</button>
                     </div>
@@ -130,7 +113,7 @@
                 <div class="car-card glass-panel">
                     <div class="card-top">
                         <span class="car-tag">Matic</span>
-                        <i class=""></i>
+                        <i class="fa-regular fa-heart"></i>
                     </div>
                     <div class="car-img-container">
                         <img src="BMW_X6_Car_BMW_X7_BMW_1_Series_PNG-removebg-preview.png" alt="Car">
@@ -139,8 +122,8 @@
                         <h4>BMW X6</h4>
                         <p class="price">Rp 2.100.000 <span>/ hari</span></p>
                         <div class="specs">
-                            <span><i class=""></i> Hybrid</span>
-                            <span><i class=""></i> 4 Kursi</span>
+                            <span><i class="fa-solid fa-gas-pump"></i> Hybrid</span>
+                            <span><i class="fa-solid fa-couch"></i> 4 Kursi</span>
                         </div>
                         <button class="btn-rent" onclick="window.location.href='booking.php'">Sewa Sekarang</button>
                     </div>
