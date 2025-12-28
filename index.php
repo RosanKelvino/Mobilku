@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MobilKu - Sewa Mobil Premium</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
     <link rel="stylesheet" href="style.css">
 </head>
@@ -58,13 +58,7 @@
             <div class="hero-image">
                 <img src="Tohoto_mazlika_si_poridim_až_vyhraju_ve_sportce-Tesla_X_plaid-removebg-preview.png" alt="Sport Car">
                 
-                <div class="float-card glass-panel">
-                    
-                    </div>
-                    <div class="action-icon">
-                        <i class=""></i>
-                    </div>
-                </div>
+            
             </div>
         </header>
         
@@ -89,7 +83,7 @@
         <section class="car-section">
             <div class="section-header">
                 <h3>Armada Terpopuler</h3>
-                <a href="catalog.html">Lihat Semua <i class=""></i></a>
+                <a href="catalog.php">Lihat Semua   <i class="fa-solid fa-arrow-right-long"></i></a>
             </div>
 
             <div class="car-grid">

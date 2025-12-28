@@ -4,12 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tentang Kami - MobilKu</title>
-    <link rel="stylesheet" href="style.css"> <link rel="stylesheet" href="about.css"> </head>
+    <link rel="stylesheet" href="style.css">   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="about.css"> </head>
 <body>
 
     <div class="glow-orb orb-1" style="top: -200px; left: -200px; opacity: 0.4;"></div>
     <div class="glow-orb orb-2" style="bottom: 0; right: 0; opacity: 0.3;"></div>
 
+    <div class="container">
     <nav class="navbar glass-panel">
         <div class="logo">
             <i class="fa-solid fa-car-side"></i> MobilKu
@@ -146,6 +150,7 @@
         </footer>
 
     </div>
+</div>
 <?php include 'login.php'; ?>
 
 </body>
