@@ -112,7 +112,7 @@
                         <div class="status-badge available">Tersedia</div>
                     </div>
                     <div class="car-img-container">
-                        <img src="https://purepng.com/public/uploads/large/purepng.com-white-audi-a8-carcarvehicletransportaudi-961524633261a8x9y.png"
+                        <img src="Tohoto_mazlika_si_poridim_až_vyhraju_ve_sportce-Tesla_X_plaid-removebg-preview.png"
                             alt="Car">
                     </div>
                     <div class="car-details">
@@ -132,7 +132,7 @@
                         <div class="status-badge available">Tersedia</div>
                     </div>
                     <div class="car-img-container">
-                        <img src="https://purepng.com/public/uploads/large/purepng.com-jeep-grand-cherokee-red-carcarvehicletransportjeep-9615246360662d5e2.png"
+                        <img src="purepng.com-jeep-grand-cherokee-carcarvehicletransportjeep-961524665863wbpmz-removebg-preview.png"
                             alt="Car">
                     </div>
                     <div class="car-details">
@@ -152,7 +152,7 @@
                         <div class="status-badge booked">Disewa</div>
                     </div>
                     <div class="car-img-container">
-                        <img src="https://purepng.com/public/uploads/large/purepng.com-bmw-x6-blue-carcarvehicletransportbmw-961524634812l0j04.png"
+                        <img src="bmw-transparent-20-removebg-preview.png"
                             alt="Car">
                     </div>
                     <div class="car-details">
@@ -173,7 +173,7 @@
                         <div class="status-badge available">Tersedia</div>
                     </div>
                     <div class="car-img-container">
-                        <img src="https://purepng.com/public/uploads/large/purepng.com-porsche-cayman-car-car-vehicle-transport-porsche-96152463660338zwd.png"
+                        <img src="Porsche-Cayman-PNG-Photo.png"
                             alt="Car">
                     </div>
                     <div class="car-details">
@@ -193,7 +193,7 @@
                         <div class="status-badge available">Tersedia</div>
                     </div>
                     <div class="car-img-container">
-                        <img src="https://purepng.com/public/uploads/large/purepng.com-mercedes-benz-c63-coupe-black-carcarvehicletransportmercedes-benz-961524634024bda63.png"
+                        <img src="51506279970jmbq1v5ikvvphalwsm5n2i5gw61kigwnihkkvnyadmerwb26oy7esskkvs4whslpfihh74wxhbloskdlsvjxn6rwhrsaa4uv023h-Photoroom.png"
                             alt="Car">
                     </div>
                     <div class="car-details">
@@ -213,7 +213,7 @@
                         <div class="status-badge available">Tersedia</div>
                     </div>
                     <div class="car-img-container">
-                        <img src="https://purepng.com/public/uploads/large/purepng.com-toyota-hilux-invincible-pick-up-truck-carcarvehicletransporttoyotapick-up-trucks-96152463459178zja.png"
+                        <img src="Toyota-Hilux-PNG-Isolated-HD-Photoroom.png"
                             alt="Car">
                     </div>
                     <div class="car-details">
