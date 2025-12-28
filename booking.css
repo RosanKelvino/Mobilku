@@ -1,0 +1,119 @@
+
+.form-booking {
+    max-width: 600px;
+    margin: 60px auto;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.form-booking label {
+    font-size: 13px;
+    color: var(--text-grey);
+    font-weight: 600;
+}
+
+.form-booking input,
+.form-booking select {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--glass-border);
+    padding: 12px 15px;
+    border-radius: 12px;
+    color: var(--text-white);
+    outline: none;
+    font-size: 14px;
+}
+
+.form-booking input:focus,
+.form-booking select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(43, 89, 255, 0.2);
+}
+
+.form-booking button {
+    margin-top: 20px;
+    align-self: flex-end;
+}
+
+/* ===== PAYMENT ===== */
+.payment-box {
+    max-width: 500px;
+    margin: 80px auto;
+    padding: 40px;
+}
+
+.payment-box h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.payment-box p {
+    font-size: 14px;
+    color: var(--text-grey);
+    margin-bottom: 6px;
+}
+
+.payment-box hr {
+    border: none;
+    height: 1px;
+    background: var(--glass-border);
+    margin: 25px 0;
+}
+
+.payment-box h2 {
+    color: var(--accent-color);
+    font-size: 32px;
+    margin-bottom: 30px;
+}
+
+.payment-box button {
+    width: 100%;
+}
+
+/* ===== ORDER SUCCESS ===== */
+.order-success {
+    max-width: 500px;
+    margin: 100px auto;
+    padding: 50px;
+    text-align: center;
+}
+
+.order-success h1 {
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.order-success p {
+    font-size: 14px;
+    color: var(--text-grey);
+    margin-bottom: 25px;
+}
+
+.order-success ul {
+    list-style: none;
+    margin-bottom: 30px;
+}
+
+.order-success ul li {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.order-success a {
+    display: inline-block;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .form-booking,
+    .payment-box,
+    .order-success {
+        margin: 40px 20px;
+        padding: 30px;
+    }
+
+    .order-success h1 {
+        font-size: 26px;
+    }
+}

@@ -103,7 +103,7 @@
                             <span><i class=""></i> Bensin</span>
                             <span><i class=""></i> 4 Kursi</span>
                         </div>
-                        <button class="btn-rent">Sewa Sekarang</button>
+                        <button class="btn-rent" onclick="window.location.href='booking.php'">Sewa Sekarang</button>
                     </div>
                 </div>
 
@@ -122,7 +122,7 @@
                             <span><i class=""></i> Solar</span>
                             <span><i class=""></i> 6 Kursi</span>
                         </div>
-                        <button class="btn-rent">Sewa Sekarang</button>
+                       <button class="btn-rent" onclick="window.location.href='booking.php'">Sewa Sekarang</button>
                     </div>
                 </div>
 
@@ -141,7 +141,7 @@
                             <span><i class=""></i> Hybrid</span>
                             <span><i class=""></i> 4 Kursi</span>
                         </div>
-                        <button class="btn-rent">Sewa Sekarang</button>
+                        <button class="btn-rent" onclick="window.location.href='booking.php'">Sewa Sekarang</button>
                     </div>
                 </div>
 
