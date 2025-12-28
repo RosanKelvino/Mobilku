@@ -16,11 +16,12 @@
 
 .form-booking input,
 .form-booking select {
+    option { background: #0f0f19; };
     background: rgba(255,255,255,0.05);
     border: 1px solid var(--glass-border);
     padding: 12px 15px;
     border-radius: 12px;
-    color: var(--text-black);
+    color: var(--text-grey);
     outline: none;
     font-size: 14px;
 }

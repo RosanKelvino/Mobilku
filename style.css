@@ -22,7 +22,7 @@ body {
     overflow-x: hidden;
     min-height: 100vh;
     position: relative;
-    display:flex
+    display:block;
 }
 
 .glow-orb {
