@@ -21,6 +21,7 @@
                 
                 <i class="fa-solid fa-car-side"></i> MobilKu 
             </div>
+            
             <ul class="nav-links">
                 <li><a href="#" class="active">Beranda</a></li>
                 <li><a href="catalog.php">Katalog</a></li>

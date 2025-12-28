@@ -22,6 +22,7 @@ body {
     overflow-x: hidden;
     min-height: 100vh;
     position: relative;
+    display:flex
 }
 
 .glow-orb {
@@ -143,7 +144,8 @@ button { cursor: pointer; font-family: inherit; transition: 0.3s; }
 }
 
 .hero-content {
-    max-width: 500px;
+    max-width: 40%;
+    
 }
 
 .badge {
@@ -206,17 +208,7 @@ h1 {
 
 
 
-.float-card {
-    position: absolute;
-    bottom: -30px;
-    left: 0;
-    padding: 15px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 260px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-}
+
 
 .driver-info {
     display: flex;
@@ -404,4 +396,65 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     color: var(--bg-dark);
 }
 
+
+/* --- RESPONSIVE DESIGN --- */
+
+/* Tablet & HP Luas (Kurang dari 992px) */
+@media (max-width: 992px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        gap: 50px;
+    }
+
+    .hero-content, .hero-image {
+        max-width: 100%;
+    }
+
+    .hero-image img {
+        width: 100%;
+    }
+
+    .hero-stats {
+        justify-content: center;
+    }
+
+    .car-grid {
+        grid-template-columns: repeat(2, 1fr); /* Jadi 2 kolom */
+    }
+
+    .search-widget {
+        flex-direction: column;
+        gap: 20px;
+        margin-top: 20px;
+    }
+
+    .divider {
+        display: none; /* Sembunyikan garis pemisah di mobile */
+    }
+
+    .input-group, .btn-search {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+/* HP Kecil (Kurang dari 600px) */
+@media (max-width: 800px) {
+    h1 {
+        font-size: 36px; /* Ukuran font judul lebih kecil */
+    }
+
+    .nav-links {
+        display: none; /* Sebaiknya buat hamburger menu nantinya */
+    }
+
+    .car-grid {
+        grid-template-columns: 1fr; /* Jadi 1 kolom saja */
+    }
+
+    .navbar {
+        padding: 15px;
+    }
+}
 
