@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,20 +9,22 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="about.css">
 </head>
+
 <body>
 
     <div class="glow-orb orb-1"></div>
     <div class="glow-orb orb-2"></div>
 
     <div class="container">
-        
+
         <nav class="navbar glass-panel">
             <div class="logo">
-                
-                <i class="fa-solid fa-car-side"></i> MobilKu 
+
+                <i class="fa-solid fa-car-side"></i> MobilKu
             </div>
-            
+
             <ul class="nav-links">
                 <li><a href="#" class="active">Beranda</a></li>
                 <li><a href="catalog.php">Katalog</a></li>
@@ -38,8 +41,9 @@
             <div class="hero-content">
                 <span class="badge">🔥 Sewa Mobil Termudah</span>
                 <h1>Jelajahi Kota dengan <br><span class="text-gradient">Mobil Impianmu</span></h1>
-                <p>Nikmati perjalanan nyaman dengan armada premium kami. Harga transparan, asuransi lengkap, dan lepas kunci.</p>
-                
+                <p>Nikmati perjalanan nyaman dengan armada premium kami. Harga transparan, asuransi lengkap, dan lepas
+                    kunci.</p>
+
                 <div class="hero-stats">
                     <div class="stat-item">
                         <h2>50+</h2>
@@ -57,21 +61,22 @@
             </div>
 
             <div class="hero-image">
-                <img src="Tohoto_mazlika_si_poridim_až_vyhraju_ve_sportce-Tesla_X_plaid-removebg-preview.png" alt="Sport Car">
-                
-            
+                <img src="Tohoto_mazlika_si_poridim_až_vyhraju_ve_sportce-Tesla_X_plaid-removebg-preview.png"
+                    alt="Sport Car">
+
+
             </div>
         </header>
-        
+
 
         <section class="car-section">
             <div class="section-header">
                 <h3>Armada Terpopuler</h3>
-                <a href="catalog.php">Lihat Semua   <i class="fa-solid fa-arrow-right-long"></i></a>
+                <a href="catalog.php">Lihat Semua <i class="fa-solid fa-arrow-right-long"></i></a>
             </div>
 
             <div class="car-grid">
-                
+
                 <div class="car-card glass-panel">
                     <div class="card-top">
                         <span class="car-tag">Matic</span>
@@ -87,7 +92,8 @@
                             <span><i class="fa-solid fa-gas-pump"></i> Bensin</span>
                             <span><i class="fa-solid fa-couch"></i> 4 Kursi</span>
                         </div>
-                        <button class="btn-rent" onclick="window.location.href='booking.php'">Sewa Sekarang</button>
+                        <button class="btn-rent" onclick="window.location.href='booking.php?mobil=Audi A8 L'">Sewa
+                            Sekarang</button>
                     </div>
                 </div>
 
@@ -106,7 +112,8 @@
                             <span><i class="fa-solid fa-gas-pump"></i> Solar</span>
                             <span><i class="fa-solid fa-couch"></i> 6 Kursi</span>
                         </div>
-                       <button class="btn-rent" onclick="window.location.href='booking.php'">Sewa Sekarang</button>
+                        <button class="btn-rent" onclick="window.location.href='booking.php?mobil=Jeep Cherokee'">Sewa
+                            Sekarang</button>
                     </div>
                 </div>
 
@@ -125,15 +132,33 @@
                             <span><i class="fa-solid fa-gas-pump"></i> Hybrid</span>
                             <span><i class="fa-solid fa-couch"></i> 4 Kursi</span>
                         </div>
-                        <button class="btn-rent" onclick="window.location.href='booking.php'">Sewa Sekarang</button>
+                        <button class="btn-rent" onclick="window.location.href='booking.php?mobil=BMW X6'">Sewa
+                            Sekarang</button>
                     </div>
                 </div>
 
             </div>
         </section>
+        <footer class="glass-panel footer-simple">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3><i class="fa-solid fa-car-side"></i> MobilKu</h3>
+                    <p>Partner perjalanan terbaik Anda.</p>
+                </div>
+                <div class="footer-contact">
+                    <p><i class="fa-solid fa-location-dot"></i> Jl. Merdeka No. 45, Jakarta Selatan</p>
+                    <p><i class="fa-solid fa-phone"></i> +62 812 3456 7890</p>
+                    <p><i class="fa-solid fa-envelope"></i> hello@luxedrive.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 LuxeDrive. All rights reserved.</p>
+            </div>
+        </footer>
     </div>
 
 
-<?php include 'login.php'; ?>
+    <?php include 'login.php'; ?>
 </body>
+
 </html>
