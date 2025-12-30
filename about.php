@@ -103,7 +103,7 @@
                             <img src="https://ui-avatars.com/api/?name=Andi+Pratama&background=random&size=200"
                                 alt="CEO">
                         </div>
-                        <h4>Arepcy Saban</h4>
+                        <h4>Arefcy Saban</h4>
                         <span>Founder & CEO</span>
                     </div>
 

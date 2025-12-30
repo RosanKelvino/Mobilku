@@ -113,7 +113,7 @@
                             <div class="status-badge available">Tersedia</div>
                         </div>
                         <div class="car-img-container">
-                            <img src="Tohoto_mazlika_si_poridim_až_vyhraju_ve_sportce-Tesla_X_plaid-removebg-preview.png"
+                            <img src="Audi_A8L__2025_-removebg-preview.png"
                                 alt="Car">
                         </div>
                         <div class="car-details">
@@ -134,7 +134,7 @@
                             <div class="status-badge available">Tersedia</div>
                         </div>
                         <div class="car-img-container">
-                            <img src="purepng.com-jeep-grand-cherokee-carcarvehicletransportjeep-961524665863wbpmz-removebg-preview.png"
+                            <img src="89ef60bbc7ef4849edfb2bde884a10d0-removebg-preview.png"
                                 alt="Car">
                         </div>
                         <div class="car-details">
@@ -155,7 +155,7 @@
                             <div class="status-badge booked">Disewa</div>
                         </div>
                         <div class="car-img-container">
-                            <img src="bmw-transparent-20-removebg-preview.png" alt="Car">
+                            <img src="BMW_X6_Car_BMW_X7_BMW_1_Series_PNG-removebg-preview.png" alt="Car">
                         </div>
                         <div class="car-details">
                             <h4>BMW X6</h4>
