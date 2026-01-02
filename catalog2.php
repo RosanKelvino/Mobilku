@@ -113,15 +113,15 @@
                             <div class="status-badge available">Tersedia</div>
                         </div>
                         <div class="car-img-container">
-                            <img src="Audi_A8L__2025_-removebg-preview.png"
+                            <img src="gambar/919_484_0000_agya-gr-_-black-red_optimized.png-removebg-preview.png"
                                 alt="Car">
                         </div>
                         <div class="car-details">
-                            <h4>Audi A8 L</h4>
-                            <p class="price">Rp 1.500.000 <span>/ hari</span></p>
+                            <h4>Toyota Agya</h4>
+                            <p class="price">Rp 350.000 <span>/ hari</span></p>
                             <div class="specs">
-                                <span><i class="fa-solid fa-chair"></i> 4</span>
-                                <span><i class="fa-solid fa-suitcase"></i> 2</span>
+                                <span><i class="fa-solid fa-couch"></i> 5</span>
+                                <span><i class="fa-solid fa-gas-pump"></i> Bensin</span>
                             </div>
                             <button class="btn-rent" onclick="window.location.href='booking.php?mobil=Audi A8 L'">Sewa
                                 Sekarang</button>
@@ -134,15 +134,15 @@
                             <div class="status-badge available">Tersedia</div>
                         </div>
                         <div class="car-img-container">
-                            <img src="89ef60bbc7ef4849edfb2bde884a10d0-removebg-preview.png"
+                            <img src="gambar/254-2546334_honda-brio-rallye-red-honda-brio-removebg-preview.png"
                                 alt="Car">
                         </div>
                         <div class="car-details">
-                            <h4>Jeep Cherokee</h4>
+                            <h4>Honda Brio</h4>
                             <p class="price">Rp 900.000 <span>/ hari</span></p>
                             <div class="specs">
-                                <span><i class="fa-solid fa-chair"></i> 6</span>
-                                <span><i class="fa-solid fa-suitcase"></i> 4</span>
+                                <span><i class="fa-solid fa-couch"></i> 5</span>
+                                <span><i class="fa-solid fa-gas-pump"></i> Bensin</span>
                             </div>
                             <button class="btn-rent"
                                 onclick="window.location.href='booking.php?mobil=Jeep Cherokee'">Sewa Sekarang</button>
@@ -152,17 +152,17 @@
                     <div class="car-card glass-panel">
                         <div class="card-top">
                             <span class="car-tag">Matic</span>
-                            <div class="status-badge booked">Disewa</div>
+                            <div class="status-badge available">Tersedia</div>
                         </div>
                         <div class="car-img-container">
-                            <img src="BMW_X6_Car_BMW_X7_BMW_1_Series_PNG-removebg-preview.png" alt="Car">
+                            <img src="gambar/R-removebg-preview.png" alt="Car">
                         </div>
                         <div class="car-details">
-                            <h4>BMW X6</h4>
-                            <p class="price">Rp 2.100.000 <span>/ hari</span></p>
+                            <h4>Toyota Calya</h4>
+                            <p class="price">Rp 450.000 <span>/ hari</span></p>
                             <div class="specs">
-                                <span><i class="fa-solid fa-chair"></i> 4</span>
-                                <span><i class="fa-solid fa-suitcase"></i> 3</span>
+                                <span><i class="fa-solid fa-couch"></i> 7</span>
+                                <span><i class="fa-solid fa-gas-pump"></i> Bensin</span>
                             </div>
                             <button class="btn-rent" disabled style="opacity: 0.5; cursor: not-allowed;">Tidak
                                 Tersedia</button>
@@ -175,14 +175,14 @@
                             <div class="status-badge available">Tersedia</div>
                         </div>
                         <div class="car-img-container">
-                            <img src="Porsche-Cayman-PNG-Photo.png" alt="Car">
+                            <img src="gambar/png-transparent-toyota-avanza-car-minivan-toyota-compact-car-van-car-removebg-preview.png" alt="Car">
                         </div>
                         <div class="car-details">
-                            <h4>Porsche Cayman</h4>
-                            <p class="price">Rp 3.500.000 <span>/ hari</span></p>
+                            <h4>Toyota Avanza</h4>
+                            <p class="price">Rp 500.000 <span>/ hari</span></p>
                             <div class="specs">
-                                <span><i class="fa-solid fa-chair"></i> 2</span>
-                                <span><i class="fa-solid fa-suitcase"></i> 1</span>
+                                <span><i class="fa-solid fa-couch"></i> 7</span>
+                                <span><i class="fa-solid fa-gas-pump"></i> Bensin</span>
                             </div>
                             <button class="btn-rent"
                                 onclick="window.location.href='booking.php?mobil=Porsche Cayman'">Sewa Sekarang</button>
@@ -195,15 +195,15 @@
                             <div class="status-badge available">Tersedia</div>
                         </div>
                         <div class="car-img-container">
-                            <img src="51506279970jmbq1v5ikvvphalwsm5n2i5gw61kigwnihkkvnyadmerwb26oy7esskkvs4whslpfihh74wxhbloskdlsvjxn6rwhrsaa4uv023h-Photoroom.png"
+                            <img src="gambar/OIP-removebg-preview.png"
                                 alt="Car">
                         </div>
                         <div class="car-details">
-                            <h4>Mercedes C63</h4>
-                            <p class="price">Rp 2.800.000 <span>/ hari</span></p>
+                            <h4>Mitsubishi Xpander</h4>
+                            <p class="price">Rp 700.000 <span>/ hari</span></p>
                             <div class="specs">
-                                <span><i class="fa-solid fa-chair"></i> 4</span>
-                                <span><i class="fa-solid fa-suitcase"></i> 2</span>
+                                <span><i class="fa-solid fa-couch"></i> 7</span>
+                                <span><i class="fa-solid fa-gas-pump"></i> Bensin</span>
                             </div>
                             <button class="btn-rent"
                                 onclick="window.location.href='booking.php?mobil=Mercedes C63'">Sewa Sekarang</button>
@@ -212,18 +212,18 @@
 
                     <div class="car-card glass-panel">
                         <div class="card-top">
-                            <span class="car-tag">Manual</span>
+                            <span class="car-tag">Matic</span>
                             <div class="status-badge available">Tersedia</div>
                         </div>
                         <div class="car-img-container">
-                            <img src="Toyota-Hilux-PNG-Isolated-HD-Photoroom.png" alt="Car">
+                            <img src="gambar/03-Grey-Metallic-1G3-removebg-preview.png" alt="Car">
                         </div>
                         <div class="car-details">
-                            <h4>Toyota Hilux</h4>
-                            <p class="price">Rp 1.200.000 <span>/ hari</span></p>
+                            <h4>Toyota Innova Zenix</h4>
+                            <p class="price">Rp 1.400.000 <span>/ hari</span></p>
                             <div class="specs">
-                                <span><i class="fa-solid fa-chair"></i> 5</span>
-                                <span><i class="fa-solid fa-suitcase"></i> 10+</span>
+                                <span><i class="fa-solid fa-couch"></i> 7</span>
+                                <span><i class="fa-solid fa-gas-pump"></i> Bensin</span>
                             </div>
                             <button class="btn-rent"
                                 onclick="window.location.href='booking.php?mobil=Toyota Hilux'">Sewa Sekarang</button>
