@@ -61,7 +61,7 @@
             </div>
 
             <div class="hero-image">
-                <img src="Tohoto_mazlika_si_poridim_až_vyhraju_ve_sportce-Tesla_X_plaid-removebg-preview.png"
+                <img src="gambar/Tohoto_mazlika_si_poridim_až_vyhraju_ve_sportce-Tesla_X_plaid-removebg-preview.png"
                     alt="Sport Car">
 
 
@@ -83,7 +83,7 @@
                         <i class="fa-regular fa-heart"></i>
                     </div>
                     <div class="car-img-container">
-                        <img src="Audi_A8L__2025_-removebg-preview.png" alt="Car">
+                        <img src="gambar/Audi_A8L__2025_-removebg-preview.png" alt="Car">
                     </div>
                     <div class="car-details">
                         <h4>Audi A8 L</h4>
@@ -103,7 +103,7 @@
                         <i class="fa-regular fa-heart"></i>
                     </div>
                     <div class="car-img-container">
-                        <img src="89ef60bbc7ef4849edfb2bde884a10d0-removebg-preview.png" alt="Car">
+                        <img src="gambar/89ef60bbc7ef4849edfb2bde884a10d0-removebg-preview.png" alt="Car">
                     </div>
                     <div class="car-details">
                         <h4>Jeep Cherokee</h4>
@@ -123,7 +123,7 @@
                         <i class="fa-regular fa-heart"></i>
                     </div>
                     <div class="car-img-container">
-                        <img src="BMW_X6_Car_BMW_X7_BMW_1_Series_PNG-removebg-preview.png" alt="Car">
+                        <img src="gambar/BMW_X6_Car_BMW_X7_BMW_1_Series_PNG-removebg-preview.png" alt="Car">
                     </div>
                     <div class="car-details">
                         <h4>BMW X6</h4>

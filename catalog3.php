@@ -113,7 +113,7 @@
                             <div class="status-badge available">Tersedia</div>
                         </div>
                         <div class="car-img-container">
-                            <img src="gambar/Audi_A8L__2025_-removebg-preview.png"
+                            <img src="Audi_A8L__2025_-removebg-preview.png"
                                 alt="Car">
                         </div>
                         <div class="car-details">
@@ -134,7 +134,7 @@
                             <div class="status-badge available">Tersedia</div>
                         </div>
                         <div class="car-img-container">
-                            <img src="gambar/89ef60bbc7ef4849edfb2bde884a10d0-removebg-preview.png"
+                            <img src="89ef60bbc7ef4849edfb2bde884a10d0-removebg-preview.png"
                                 alt="Car">
                         </div>
                         <div class="car-details">
@@ -155,7 +155,7 @@
                             <div class="status-badge booked">Disewa</div>
                         </div>
                         <div class="car-img-container">
-                            <img src="gambar/BMW_X6_Car_BMW_X7_BMW_1_Series_PNG-removebg-preview.png" alt="Car">
+                            <img src="BMW_X6_Car_BMW_X7_BMW_1_Series_PNG-removebg-preview.png" alt="Car">
                         </div>
                         <div class="car-details">
                             <h4>BMW X6</h4>
@@ -175,7 +175,7 @@
                             <div class="status-badge available">Tersedia</div>
                         </div>
                         <div class="car-img-container">
-                            <img src="gambar/Porsche-Cayman-PNG-Photo.png" alt="Car">
+                            <img src="Porsche-Cayman-PNG-Photo.png" alt="Car">
                         </div>
                         <div class="car-details">
                             <h4>Porsche Cayman</h4>
@@ -195,7 +195,7 @@
                             <div class="status-badge available">Tersedia</div>
                         </div>
                         <div class="car-img-container">
-                            <img src="gambar/51506279970jmbq1v5ikvvphalwsm5n2i5gw61kigwnihkkvnyadmerwb26oy7esskkvs4whslpfihh74wxhbloskdlsvjxn6rwhrsaa4uv023h-Photoroom.png"
+                            <img src="51506279970jmbq1v5ikvvphalwsm5n2i5gw61kigwnihkkvnyadmerwb26oy7esskkvs4whslpfihh74wxhbloskdlsvjxn6rwhrsaa4uv023h-Photoroom.png"
                                 alt="Car">
                         </div>
                         <div class="car-details">
@@ -216,7 +216,7 @@
                             <div class="status-badge available">Tersedia</div>
                         </div>
                         <div class="car-img-container">
-                            <img src="gambar/Toyota-Hilux-PNG-Isolated-HD-Photoroom.png" alt="Car">
+                            <img src="Toyota-Hilux-PNG-Isolated-HD-Photoroom.png" alt="Car">
                         </div>
                         <div class="car-details">
                             <h4>Toyota Hilux</h4>
@@ -233,11 +233,11 @@
                 </div>
 
                 <div class="pagination">
-                    <a href="#" class="page-link"><i class="fa-solid fa-chevron-left"></i></a>
-                    <a href="#" class="page-link active">1</a>
+                    <a href="catalog2.php" class="page-link"><i class="fa-solid fa-chevron-left"></i></a>
+                    <a href="catalog.php" class="page-link">1</a>
                     <a href="catalog2.php" class="page-link">2</a>
-                    <a href="catalog3.php" class="page-link">3</a>
-                    <a href="catalog2.php" class="page-link"><i class="fa-solid fa-chevron-right"></i></a>
+                    <a href="#" class="page-link active">3</a>
+                    <a href="#" class="page-link"><i class="fa-solid fa-chevron-right"></i></a>
                 </div>
 
             </main>
