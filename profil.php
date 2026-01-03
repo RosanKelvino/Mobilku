@@ -171,44 +171,38 @@ $data_user = $query->fetch_assoc();
                    <?php include 'navbar.php'; ?>
     </div>
 
-        <main class="container">
-            <div class="profile-wrapper">
+        
 
-                <aside class="profile-sidebar glass-panel">
-                    <div class="profile-avatar">
-                        <img src="istockphoto-1300845620-612x612.jpg" id="profile-avatar-img">
+    <main class="container">
+        <div class="profile-wrapper">
+            <aside class="profile-sidebar glass-panel">
+                <div class="profile-avatar">
+                    <img src="istockphoto-1300845620-612x612.jpg" id="profile-avatar-img">
+                    <label for="upload-photo" class="upload-foto">
+                        <i class="fas fa-camera" style="font-size: 14px; color: white;"></i>
+                    </label>
+                    <input type="file" id="upload-photo" accept="image/*" style="display: none;">
+                </div>
+                <h3>John Doe</h3>
+                <p style="color: var(--text-grey); font-size: 14px; margin-top: 5px;">Member Gold</p>
 
-                          <label for="upload-photo" class="upload-foto" >
-                            <i class="fas fa-camera" style="font-size: 14px; color: white;"></i>
-                        </label>
-                      
-                        <input type="file" id="upload-photo" accept="image/*" style="display: none;">
-                    </div>
-                    <h3>John Doe</h3>
-                    <p style="color: var(--text-grey); font-size: 14px; margin-top: 5px;">Member Gold</p>
+                <div class="profile-nav">
+                    <button class="profile-nav-item active" onclick="showTab('detail')">
+                        <i class="fas fa-user"></i> Detail Profil
+                    </button>
+                    <button class="profile-nav-item" onclick="showTab('history')">
+                        <i class="fas fa-history"></i> Riwayat Sewa
+                    </button>
+                </div>
+            </aside>
 
-                    <div class="profile-nav">
-                        <a href="#" class="profile-nav-item active">
-                            <i class="fas fa-user"></i> Detail Profil
-                        </a>
-                        <a href="#" class="profile-nav-item">
-                            <i class="fas fa-history"></i> Riwayat Sewa
-                        </a>
-                        <a href="#" class="profile-nav-item">
-                            <i class="fas fa-wallet"></i> Metode Pembayaran
-                        </a>
-                        <a href="#" class="profile-nav-item">
-                            <i class="fas fa-cog"></i> Pengaturan
-                        </a>
-                    </div>
-                </aside>
-
-                <section class="profile-content glass-panel">
+            <section class="profile-content glass-panel">
+                
+                <div id="tab-detail" class="tab-content">
                     <div style="margin-bottom: 30px;">
                         <h2 class="text-gradient">Informasi Pribadi</h2>
-                        <p style="color: var(--text-grey);">Kelola informasi akun dan pengaturan keamanan Anda.</p>
+                        <p style="color: var(--text-grey);">Kelola informasi akun dan profil Anda.</p>
                     </div>
-
                     <form>
                         <div class="form-row">
                             <div class="input-box">
@@ -220,7 +214,6 @@ $data_user = $query->fetch_assoc();
                                 <input type="email" value="johndoe@example.com">
                             </div>
                         </div>
-
                         <div class="form-row">
                             <div class="input-box">
                                 <label>Nomor Telepon</label>
@@ -231,54 +224,126 @@ $data_user = $query->fetch_assoc();
                                 <input type="date" value="1995-05-15">
                             </div>
                         </div>
-
                         <div class="input-box" style="margin-bottom: 30px;">
                             <label>Alamat Lengkap</label>
                             <input type="text" value="Jl. Sudirman No. 123, Jakarta Pusat">
                         </div>
-
                         <div style="display: flex; gap: 15px;">
                             <button type="submit" class="btn-primary">Simpan Perubahan</button>
-                            <button type="button" class="btn-transparent"
-                                style="border: 1px solid var(--glass-border); padding: 10px 25px; border-radius: 50px;">Batal</button>
+                            <button type="button" class="btn-transparent" style="border: 1px solid var(--glass-border); padding: 10px 25px; border-radius: 50px;">Batal</button>
                         </div>
                     </form>
-                </section>
+                </div>
 
-            </div>
-        </main>
-        <script>
-            // Memastikan DOM sudah dimuat sepenuhnya
-            window.addEventListener('DOMContentLoaded', (event) => {
-                // Mengambil elemen berdasarkan ID dan Class yang baru saja kita buat
-                const mainImg = document.getElementById('profile-avatar-img');
-                const navImg = document.querySelector('.nav-profil-img');
+                <div id="tab-history" class="tab-content" style="display: none;">
+                    <div style="margin-bottom: 30px;">
+                        <h2 class="text-gradient">Riwayat Sewa</h2>
+                        <p style="color: var(--text-grey);">Daftar riwayat penyewaan kendaraan Anda.</p>
+                    </div>
 
-                // Validasi jika kedua elemen ditemukan, maka samakan sumber gambarnya
-                if (mainImg && navImg) {
-                    navImg.src = mainImg.src;
-                }
-            });
-            const uploadInput = document.getElementById('upload-photo');
-            const mainImg = document.getElementById('profile-avatar-img');
-            const navImg = document.querySelector('.nav-profil-img');
+                    <div class="history-list" id="history-container">
+                        <div class="history-card" id="history-1">
+                            <div class="history-info">
+                                <img src="gambar/Porsche-Cayman-PNG-Photo.png" class="car-thumb">
+                                <div>
+                                    <h4 style="margin-bottom: 5px;">Porsche Cayman </h4>
+                                    <p style="font-size: 12px; color: var(--text-grey);">
+                                        <i class="far fa-calendar-alt"></i> 12 Des 2025 - 15 Des 2025
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="history-actions">
+                                <div style="text-align: right;">
+                                    <span class="status-badge completed">Selesai</span>
+                                    <p style="font-weight: 700; margin-top: 8px;">Rp 3.500.000</p>
+                                </div>
+                                <button class="btn-delete" onclick="removeHistory('history-1')" title="Hapus Riwayat">
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
+                            </div>
+                        </div>
 
-            uploadInput.addEventListener('change', function () {
-                const file = this.files[0];
-                if (file) {
-                    const reader = new FileReader();
+                        <div class="history-card" id="history-2">
+                            <div class="history-info">
+                                <img src="gambar/BMW_X6_Car_BMW_X7_BMW_1_Series_PNG-removebg-preview.png" class="car-thumb">
+                                <div>
+                                    <h4 style="margin-bottom: 5px;">BMW X6</h4>
+                                    <p style="font-size: 12px; color: var(--text-grey);">
+                                        <i class="far fa-calendar-alt"></i> 01 Jan 2026 - 03 Jan 2026
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="history-actions">
+                                <div style="text-align: right;">
+                                    <span class="status-badge ongoing">Berlangsung</span>
+                                    <p style="font-weight: 700; margin-top: 8px;">Rp 2.100.00</p>
+                                </div>
+                                <button class="btn-delete" onclick="removeHistory('history-2')" title="Hapus Riwayat">
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-                    reader.onload = function (e) {
-                        // Ganti sumber gambar di sidebar
-                        mainImg.src = e.target.result;
-                        // Ganti sumber gambar di navbar secara otomatis
-                        navImg.src = e.target.result;
+            </section>
+        </div>
+    </main>
+
+    <script>
+        // Fungsi untuk Perpindahan Tab
+        function showTab(tabName) {
+            document.querySelectorAll('.tab-content').forEach(tab => tab.style.display = 'none');
+            document.querySelectorAll('.profile-nav-item').forEach(btn => btn.classList.remove('active'));
+
+            if (tabName === 'detail') {
+                document.getElementById('tab-detail').style.display = 'block';
+                document.querySelector('[onclick="showTab(\'detail\')"]').classList.add('active');
+            } else {
+                document.getElementById('tab-history').style.display = 'block';
+                document.querySelector('[onclick="showTab(\'history\')"]').classList.add('active');
+            }
+        }
+
+        // Fungsi Hapus Riwayat dengan Animasi
+        function removeHistory(id) {
+            if (confirm("Apakah Anda yakin ingin menghapus riwayat ini?")) {
+                const element = document.getElementById(id);
+                element.style.transform = "translateX(50px)";
+                element.style.opacity = "0";
+                
+                setTimeout(() => {
+                    element.remove();
+                    
+                    // Tampilkan pesan jika riwayat kosong
+                    const container = document.getElementById('history-container');
+                    if (container.children.length === 0) {
+                        container.innerHTML = `<div style="text-align:center; padding: 40px; color: var(--text-grey);">
+                            <i class="fas fa-folder-open" style="font-size: 40px; margin-bottom: 15px; opacity: 0.3;"></i>
+                            <p>Tidak ada riwayat penyewaan.</p>
+                        </div>`;
                     }
+                }, 400);
+            }
+        }
 
-                    reader.readAsDataURL(file);
+        // Script Preview Foto Profil (Sinkron ke Navbar)
+        const uploadInput = document.getElementById('upload-photo');
+        const mainImg = document.getElementById('profile-avatar-img');
+        const navImg = document.querySelector('.nav-profil-img');
+
+        uploadInput.addEventListener('change', function () {
+            const file = this.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    mainImg.src = e.target.result;
+                    if (navImg) navImg.src = e.target.result;
                 }
-            });
-        </script>
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
 </body>
 
 </html>
