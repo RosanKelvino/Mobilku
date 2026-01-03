@@ -54,28 +54,8 @@ $result = $conn->query($sql);
     <div class="glow-orb orb-2" style="bottom: 10%; right: -10%;"></div>
     <div class="container">
 
-        <nav class="navbar glass-panel">
-            <div class="logo">
-                <a href="index.php">
-                    <i class="fa-solid fa-car-side"></i> MobilKu
-                </a>
-            </div>
-            <ul class="nav-links">
-                <li><a href="index.php">Home</a></li>
-                <li><a href="#" class="active">Katalog</a></li>
-                <li><a href="services.php">Layanan</a></li>
-                <li><a href="about.php">Tentang</a></li>
-            </ul>
-            <div class="nav-actions">
-                <?php if(isset($_SESSION['user_id'])): ?>
-                    <span style="color: white; margin-right: 15px;">Hai, <?php echo $_SESSION['nama']; ?></span>
-                    <a href="logout.php" class="btn-primary">Logout</a>
-                <?php else: ?>
-                    <button class="btn-transparent">Masuk</button>
-                    <button class="btn-primary">Daftar</button>
-                <?php endif; ?>
-            </div>
-        </nav>
+              <?php include 'navbar.php'; ?>
+
 
         <div class="container main-wrapper">
 
@@ -151,12 +131,10 @@ $result = $conn->query($sql);
                     <?php
                     if ($result->num_rows > 0) {
                         while($row = $result->fetch_assoc()) {
-                            // Cek status untuk styling
                             $is_available = ($row['status'] == 'Tersedia');
                             $status_class = $is_available ? 'available' : 'booked';
                             $btn_state    = $is_available ? '' : 'disabled style="opacity: 0.5; cursor: not-allowed;"';
                             $btn_text     = $is_available ? 'Sewa Sekarang' : 'Tidak Tersedia';
-                            // Link hanya aktif jika tersedia
                             $btn_action   = $is_available ? "onclick=\"window.location.href='booking.php?mobil_id=" . $row['id'] . "'\"" : "";
                             ?>
                             

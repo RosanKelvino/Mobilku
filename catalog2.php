@@ -25,7 +25,7 @@
                 </a>
             </div>
             <ul class="nav-links">
-                <li><a href="index.php">Home</a></li>
+                <li><a href="index.php">Beranda</a></li>
                 <li><a href="#" class="active">Katalog</a></li>
                 <li><a href="services.php">Layanan</a></li>
                 <li><a href="about.php">Tentang</a></li>

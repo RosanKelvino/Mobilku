@@ -168,25 +168,8 @@ $data_user = $query->fetch_assoc();
     <div class="glow-orb orb-2"></div>
 
     <nav class="container">
-        <nav class="navbar glass-panel">
-            <div class="logo">
-                <a href="index.php">
-                    <i class="fa-solid fa-car-side"></i> MobilKu
-                </a>
-            </div>
+                   <?php include 'navbar.php'; ?>
 
-            <ul class="nav-links">
-                <li><a href="#" class="active">Beranda</a></li>
-                <li><a href="catalog.php">Katalog</a></li>
-                <li><a href="services.php">Layanan</a></li>
-                <li><a href="about.php">Tentang</a></li>
-            </ul>
-            <div class="nav-actions">
-                <div class="nav-profil">
-                    <img src="istockphoto-1300845620-612x612.jpg" class="nav-profil-img">
-                </div>
-            </div>
-        </nav>
 
         <main class="container">
             <div class="profile-wrapper">

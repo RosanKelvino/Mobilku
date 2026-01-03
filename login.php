@@ -1,5 +1,4 @@
 <?php
-session_start();
 include 'db.php';
 
 if (isset($_POST['register'])) {
@@ -15,9 +14,12 @@ if (isset($_POST['register'])) {
         $pass_hash = password_hash($pass, PASSWORD_DEFAULT);
         
         $sql = "INSERT INTO users (nama_lengkap, email, password, no_hp) VALUES ('$nama', '$email', '$pass_hash', '$hp')";
-        if ($conn->query($sql)) {
-            echo "<script>alert('Pendaftaran Berhasil! Silakan Login.'); window.location.href='login.php';</script>";
-        } else {
+       if ($conn->query($sql)) {
+    echo "<script>
+        alert('Pendaftaran Berhasil! Silakan Login.'); 
+        window.location.href='index.php?status=success'; 
+    </script>";
+} else {
             echo "<script>alert('Gagal: " . $conn->error . "');</script>";
         }
     }
@@ -188,6 +190,9 @@ if (isset($_POST['login'])) {
                 if (event.target === loginModal) loginModal.style.display = 'none';
                 if (event.target === registerModal) registerModal.style.display = 'none';
             };
+            document.addEventListener('DOMContentLoaded', () => {
+
+ 
         });
     </script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>

@@ -1,7 +1,6 @@
 <?php 
 session_start(); 
 include "db.php"; 
-
 ?>
 
 <!DOCTYPE html>
@@ -26,38 +25,7 @@ include "db.php";
 
     <div class="container">
 
-        <nav class="navbar glass-panel">
-            <div class="logo">
-                <a href="index.php" style="text-decoration: none; color: inherit;">
-                    <i class="fa-solid fa-car-side"></i> MobilKu
-                </a>
-            </div>
-
-            <ul class="nav-links">
-                <li><a href="index.php" class="active">Beranda</a></li>
-                <li><a href="catalog.php">Katalog</a></li>
-                <li><a href="services.php">Layanan</a></li>
-                <li><a href="about.php">Tentang</a></li>
-            </ul>
-
-            <div class="nav-actions">
-                <?php if (isset($_SESSION['username'])): ?>
-                    <a href="profile.php" class="btn-transparent" style="text-decoration:none; display:flex; align-items:center; gap:5px;">
-                        <i class="fa-solid fa-user"></i> 
-                        <span><?php echo htmlspecialchars($_SESSION['username']); ?></span>
-                    </a>
-                    
-                    <a href="logout.php" class="btn-primary" style="padding: 10px 15px;" onclick="return confirm('Yakin ingin keluar?');">
-                        <i class="fa-solid fa-right-from-bracket"></i>
-                    </a>
-
-                <?php else: ?>
-                    <button class="btn-transparent" onclick="openLoginModal()">Masuk</button>
-                    <button class="btn-primary" onclick="window.location.href='register.php'">Daftar</button>
-                <?php endif; ?>
-            </div>
-        </nav>
-
+        <?php include 'navbar.php'; ?>
         <header class="hero">
             <div class="hero-content">
                 <span class="badge">🔥 Sewa Mobil Termudah</span>
@@ -180,6 +148,7 @@ include "db.php";
             console.log("Tombol masuk diklik"); 
         }
     </script>
+    
 </body>
 
 </html>

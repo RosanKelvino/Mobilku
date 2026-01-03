@@ -17,23 +17,8 @@
     <div class="glow-orb orb-2" style="bottom: 0; right: 0; opacity: 0.3;"></div>
 
     <div class="container">
-        <nav class="navbar glass-panel">
-            <div class="logo">
-                <a href="index.php">
-                    <i class="fa-solid fa-car-side"></i> MobilKu
-                </a>
-            </div>
-            <ul class="nav-links">
-                <li><a href="index.php">Home</a></li>
-                <li><a href="catalog.php">Katalog</a></li>
-                <li><a href="services.php">Layanan</a></li>
-                <li><a href="#" class="active">Tentang</a></li>
-            </ul>
-            <div class="nav-actions">
-                <button class="btn-transparent">Masuk</button>
-                <button class="btn-primary">Daftar</button>
-            </div>
-        </nav>
+         <?php include 'navbar.php'; ?>
+
 
         <div class="container">
 
