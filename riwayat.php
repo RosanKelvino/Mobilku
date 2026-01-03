@@ -22,7 +22,6 @@
             height: fit-content;
         }
 
-        /* Reuse styles from profil.php */
         .profile-avatar {
             width: 150px;
             height: 150px;
@@ -96,7 +95,7 @@
         }
 
         .car-info-cell img {
-            width: 60px;
+            width: 80px; /* Sedikit lebih besar agar terlihat jelas */
             border-radius: 8px;
             background: rgba(255,255,255,0.05);
         }
@@ -113,13 +112,19 @@
         .status-cancelled { background: rgba(235, 77, 75, 0.2); color: #eb4d4b; }
 
         .btn-detail {
-            background: rgba(255,255,255,0.1);
+            background: var(--primary-color);
             border: none;
             color: white;
-            padding: 6px 12px;
+            padding: 8px 16px;
             border-radius: 6px;
             font-size: 12px;
             cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-detail:hover {
+            background: var(--accent-color);
+            transform: translateY(-2px);
         }
 
         @media (max-width: 992px) {
@@ -129,11 +134,13 @@
 </head>
 
 <body>
-    <div class="glow-orb orb-1"></div>
-    <div class="glow-orb orb-2"></div>
+    <div class="glow-orb orb-1" style="top: -100px; left: -100px;"></div>
+    <div class="glow-orb orb-2" style="bottom: 10%; right: -50px;"></div>
+
     <div class="container">
-                      <?php include 'navbar.php'; ?>
-    <div>
+            <?php include 'navbar.php'; ?>
+
+
         <div class="profile-wrapper">
             <aside class="profile-sidebar glass-panel">
                 <div class="profile-avatar">
@@ -149,13 +156,16 @@
                     <a href="riwayat.php" class="profile-nav-item active">
                         <i class="fas fa-history"></i> Riwayat Sewa
                     </a>
+                    <a href="logout.php" class="profile-nav-item" style="color: #eb4d4b;">
+                        <i class="fas fa-sign-out-alt" style="color: #eb4d4b;"></i> Keluar
+                    </a>
                 </div>
             </aside>
 
             <section class="history-content glass-panel">
                 <div style="margin-bottom: 30px;">
-                    <h2 class="text-gradient">Riwayat Penyewaan</h2>
-                    <p style="color: var(--text-grey);">Pantau status dan detail semua pesanan Anda.</p>
+                    <h2 class="text-gradient" style="font-size: 32px;">Riwayat Penyewaan</h2>
+                    <p style="color: var(--text-grey);">Pantau status dan detail semua pesanan Anda secara real-time.</p>
                 </div>
 
                 <div class="table-container">
@@ -189,4 +199,43 @@
                             <tr>
                                 <td>
                                     <div class="car-info-cell">
-                                        <img src="https://
+                                        <img src="https://www.pngmart.com/files/10/Porsche-911-GT3-PNG-Transparent-Image.png" alt="Car">
+                                        <div>
+                                            <p style="font-weight: 600;">Porsche 911 GT3</p>
+                                            <small style="color: var(--text-grey);">Sport / Manual</small>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>20 Jan 2024</td>
+                                <td style="color: var(--accent-color); font-weight: 600;">Rp 4.200.000</td>
+                                <td><span class="status-badge status-pending">Menunggu</span></td>
+                                <td><button class="btn-detail">Detail</button></td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <div class="car-info-cell">
+                                        <img src="https://www.pngplay.com/wp-content/uploads/13/Audi-R8-PNG-Clipart-Background.png" alt="Car">
+                                        <div>
+                                            <p style="font-weight: 600;">Audi R8 V10</p>
+                                            <small style="color: var(--text-grey);">Supercar / Automatic</small>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>05 Jan 2024</td>
+                                <td style="color: var(--accent-color); font-weight: 600;">Rp 3.800.000</td>
+                                <td><span class="status-badge status-cancelled">Dibatalkan</span></td>
+                                <td><button class="btn-detail" style="background: rgba(255,255,255,0.1);">Re-book</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <footer style="text-align: center; padding: 40px 0; color: var(--text-grey); font-size: 14px;">
+        <p>&copy; 2024 MobilKu Rental. All rights reserved.</p>
+    </footer>
+</body>
+</html>
