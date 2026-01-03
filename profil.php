@@ -167,9 +167,9 @@ $data_user = $query->fetch_assoc();
     <div class="glow-orb orb-1"></div>
     <div class="glow-orb orb-2"></div>
 
-    <nav class="container">
+    <div class="container">
                    <?php include 'navbar.php'; ?>
-
+    </div>
 
         <main class="container">
             <div class="profile-wrapper">
