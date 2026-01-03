@@ -1,3 +1,39 @@
+<?php
+include 'db.php';
+
+
+$where_clauses = [];
+
+if (isset($_GET['kategori']) && !empty($_GET['kategori'])) {
+    $kategori_filter = $_GET['kategori'];
+    $kategori_list = array_map(function($item) use ($conn) {
+        return "'" . $conn->real_escape_string($item) . "'";
+    }, $kategori_filter);
+    $where_clauses[] = "kategori IN (" . implode(",", $kategori_list) . ")";
+}
+
+if (isset($_GET['transmisi']) && $_GET['transmisi'] != '') {
+    $transmisi = $conn->real_escape_string($_GET['transmisi']);
+    $where_clauses[] = "transmisi = '$transmisi'";
+}
+
+if (isset($_GET['min_harga']) && $_GET['min_harga'] != '') {
+    $min = (int)$_GET['min_harga'];
+    $where_clauses[] = "harga_per_hari >= $min";
+}
+if (isset($_GET['max_harga']) && $_GET['max_harga'] != '') {
+    $max = (int)$_GET['max_harga'];
+    $where_clauses[] = "harga_per_hari <= $max";
+}
+
+$sql = "SELECT * FROM mobil";
+if (count($where_clauses) > 0) {
+    $sql .= " WHERE " . implode(" AND ", $where_clauses);
+}
+
+$result = $conn->query($sql);
+?>
+
 <!DOCTYPE html>
 <html lang="id">
 
@@ -7,9 +43,9 @@
     <title>Katalog Mobil - MobilKu</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="catalog.css">
-    <link rel="stylesheet" href="about.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/catalog.css">
+    <link rel="stylesheet" href="css/about.css">
 </head>
 
 <body>
@@ -20,7 +56,9 @@
 
         <nav class="navbar glass-panel">
             <div class="logo">
-                <i class="fa-solid fa-car-side"></i> MobilKu
+                <a href="index.php">
+                    <i class="fa-solid fa-car-side"></i> MobilKu
+                </a>
             </div>
             <ul class="nav-links">
                 <li><a href="index.php">Home</a></li>
@@ -29,215 +67,133 @@
                 <li><a href="about.php">Tentang</a></li>
             </ul>
             <div class="nav-actions">
-                <button class="btn-transparent">Masuk</button>
-                <button class="btn-primary">Daftar</button>
+                <?php if(isset($_SESSION['user_id'])): ?>
+                    <span style="color: white; margin-right: 15px;">Hai, <?php echo $_SESSION['nama']; ?></span>
+                    <a href="logout.php" class="btn-primary">Logout</a>
+                <?php else: ?>
+                    <button class="btn-transparent">Masuk</button>
+                    <button class="btn-primary">Daftar</button>
+                <?php endif; ?>
             </div>
         </nav>
 
         <div class="container main-wrapper">
 
             <aside class="filter-sidebar glass-panel">
-                <div class="filter-header">
-                    <h3><i class="fa-solid fa-filter"></i> Filter</h3>
-                    <a href="#" class="reset-link">Reset</a>
-                </div>
-
-                <div class="filter-group">
-                    <h4>Kategori</h4>
-                    <label class="checkbox-container">Semua
-                        <input type="checkbox" checked>
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="checkbox-container">Sport Car
-                        <input type="checkbox">
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="checkbox-container">SUV Premium
-                        <input type="checkbox">
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="checkbox-container">Sedan Luxury
-                        <input type="checkbox">
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="checkbox-container">MPV Family
-                        <input type="checkbox">
-                        <span class="checkmark"></span>
-                    </label>
-                </div>
-
-                <div class="divider"></div>
-
-                <div class="filter-group">
-                    <h4>Transmisi</h4>
-                    <div class="chip-container">
-                        <button class="filter-chip active">Auto</button>
-                        <button class="filter-chip">Manual</button>
+                <form action="catalog.php" method="GET">
+                    <div class="filter-header">
+                        <h3><i class="fa-solid fa-filter"></i> Filter</h3>
+                        <a href="catalog.php" class="reset-link">Reset</a>
                     </div>
-                </div>
 
-                <div class="divider"></div>
-
-                <div class="filter-group">
-                    <h4>Rentang Harga (per hari)</h4>
-                    <div class="price-inputs">
-                        <input type="number" placeholder="Min" class="glass-input">
-                        <span>-</span>
-                        <input type="number" placeholder="Max" class="glass-input">
+                    <div class="filter-group">
+                        <h4>Kategori</h4>
+                        <label class="checkbox-container">Sport Car
+                            <input type="checkbox" name="kategori[]" value="Sport Car">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="checkbox-container">SUV Premium
+                            <input type="checkbox" name="kategori[]" value="SUV Premium">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="checkbox-container">Sedan Luxury
+                            <input type="checkbox" name="kategori[]" value="Sedan Luxury">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="checkbox-container">MPV Family
+                            <input type="checkbox" name="kategori[]" value="MPV Family">
+                            <span class="checkmark"></span>
+                        </label>
                     </div>
-                </div>
 
-                <button class="btn-primary w-100 mt-20">Terapkan Filter</button>
+                    <div class="divider"></div>
+
+                    <div class="filter-group">
+                        <h4>Transmisi</h4>
+                        <select name="transmisi" class="glass-input" style="width: 100%; color: white; background: rgba(255,255,255,0.1);">
+                            <option value="" style="color: black;">Semua</option>
+                            <option value="Matic" style="color: black;">Matic</option>
+                            <option value="Manual" style="color: black;">Manual</option>
+                        </select>
+                    </div>
+
+                    <div class="divider"></div>
+
+                    <div class="filter-group">
+                        <h4>Rentang Harga (per hari)</h4>
+                        <div class="price-inputs">
+                            <input type="number" name="min_harga" placeholder="Min" class="glass-input">
+                            <span>-</span>
+                            <input type="number" name="max_harga" placeholder="Max" class="glass-input">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-primary w-100 mt-20">Terapkan Filter</button>
+                </form>
             </aside>
 
             <main class="catalog-content">
 
                 <div class="catalog-header glass-panel">
-                    <span>Menampilkan <strong>9</strong> dari <strong>45</strong> mobil</span>
+                    <span>Menampilkan <strong><?php echo $result->num_rows; ?></strong> mobil</span>
                     <div class="sort-box">
                         <label>Urutkan:</label>
                         <select class="glass-select">
                             <option>Paling Relevan</option>
                             <option>Harga Terendah</option>
                             <option>Harga Tertinggi</option>
-                            <option>Terbaru</option>
                         </select>
                     </div>
                 </div>
 
                 <div class="car-grid three-col">
 
-                    <div class="car-card glass-panel">
-                        <div class="card-top">
-                            <span class="car-tag">Matic</span>
-                            <div class="status-badge available">Tersedia</div>
-                        </div>
-                        <div class="car-img-container">
-                            <img src="gambar/Audi_A8L__2025_-removebg-preview.png"
-                                alt="Car">
-                        </div>
-                        <div class="car-details">
-                            <h4>Audi A8 L</h4>
-                            <p class="price">Rp 1.500.000 <span>/ hari</span></p>
-                            <div class="specs">
-                                <span><i class="fa-solid fa-chair"></i> 4</span>
-                                <span><i class="fa-solid fa-suitcase"></i> 2</span>
+                    <?php
+                    if ($result->num_rows > 0) {
+                        while($row = $result->fetch_assoc()) {
+                            // Cek status untuk styling
+                            $is_available = ($row['status'] == 'Tersedia');
+                            $status_class = $is_available ? 'available' : 'booked';
+                            $btn_state    = $is_available ? '' : 'disabled style="opacity: 0.5; cursor: not-allowed;"';
+                            $btn_text     = $is_available ? 'Sewa Sekarang' : 'Tidak Tersedia';
+                            // Link hanya aktif jika tersedia
+                            $btn_action   = $is_available ? "onclick=\"window.location.href='booking.php?mobil_id=" . $row['id'] . "'\"" : "";
+                            ?>
+                            
+                            <div class="car-card glass-panel">
+                                <div class="card-top">
+                                    <span class="car-tag"><?php echo $row['transmisi']; ?></span>
+                                    <div class="status-badge <?php echo $status_class; ?>"><?php echo $row['status']; ?></div>
+                                </div>
+                                <div class="car-img-container">
+                                    <img src="gambar/<?php echo $row['gambar']; ?>" alt="<?php echo $row['nama_mobil']; ?>">
+                                </div>
+                                <div class="car-details">
+                                    <h4><?php echo $row['nama_mobil']; ?></h4>
+                                    <p class="price">Rp <?php echo number_format($row['harga_per_hari'], 0, ',', '.'); ?> <span>/ hari</span></p>
+                                    <div class="specs">
+                                        <span><i class="fa-solid fa-chair"></i> <?php echo $row['kapasitas']; ?></span>
+                                        <span><i class="fa-solid fa-gas-pump"></i> <?php echo $row['bahan_bakar']; ?></span>
+                                    </div>
+                                    <button class="btn-rent" <?php echo $btn_state; ?> <?php echo $btn_action; ?>>
+                                        <?php echo $btn_text; ?>
+                                    </button>
+                                </div>
                             </div>
-                            <button class="btn-rent" onclick="window.location.href='booking.php?mobil=Audi A8 L'">Sewa
-                                Sekarang</button>
-                        </div>
-                    </div>
-
-                    <div class="car-card glass-panel">
-                        <div class="card-top">
-                            <span class="car-tag">Manual</span>
-                            <div class="status-badge available">Tersedia</div>
-                        </div>
-                        <div class="car-img-container">
-                            <img src="gambar/89ef60bbc7ef4849edfb2bde884a10d0-removebg-preview.png"
-                                alt="Car">
-                        </div>
-                        <div class="car-details">
-                            <h4>Jeep Cherokee</h4>
-                            <p class="price">Rp 900.000 <span>/ hari</span></p>
-                            <div class="specs">
-                                <span><i class="fa-solid fa-chair"></i> 6</span>
-                                <span><i class="fa-solid fa-suitcase"></i> 4</span>
-                            </div>
-                            <button class="btn-rent"
-                                onclick="window.location.href='booking.php?mobil=Jeep Cherokee'">Sewa Sekarang</button>
-                        </div>
-                    </div>
-
-                    <div class="car-card glass-panel">
-                        <div class="card-top">
-                            <span class="car-tag">Matic</span>
-                            <div class="status-badge booked">Disewa</div>
-                        </div>
-                        <div class="car-img-container">
-                            <img src="gambar/BMW_X6_Car_BMW_X7_BMW_1_Series_PNG-removebg-preview.png" alt="Car">
-                        </div>
-                        <div class="car-details">
-                            <h4>BMW X6</h4>
-                            <p class="price">Rp 2.100.000 <span>/ hari</span></p>
-                            <div class="specs">
-                                <span><i class="fa-solid fa-chair"></i> 4</span>
-                                <span><i class="fa-solid fa-suitcase"></i> 3</span>
-                            </div>
-                            <button class="btn-rent" disabled style="opacity: 0.5; cursor: not-allowed;">Tidak
-                                Tersedia</button>
-                        </div>
-                    </div>
-
-                    <div class="car-card glass-panel">
-                        <div class="card-top">
-                            <span class="car-tag">Matic</span>
-                            <div class="status-badge available">Tersedia</div>
-                        </div>
-                        <div class="car-img-container">
-                            <img src="gambar/Porsche-Cayman-PNG-Photo.png" alt="Car">
-                        </div>
-                        <div class="car-details">
-                            <h4>Porsche Cayman</h4>
-                            <p class="price">Rp 3.500.000 <span>/ hari</span></p>
-                            <div class="specs">
-                                <span><i class="fa-solid fa-chair"></i> 2</span>
-                                <span><i class="fa-solid fa-suitcase"></i> 1</span>
-                            </div>
-                            <button class="btn-rent"
-                                onclick="window.location.href='booking.php?mobil=Porsche Cayman'">Sewa Sekarang</button>
-                        </div>
-                    </div>
-
-                    <div class="car-card glass-panel">
-                        <div class="card-top">
-                            <span class="car-tag">Matic</span>
-                            <div class="status-badge available">Tersedia</div>
-                        </div>
-                        <div class="car-img-container">
-                            <img src="gambar/51506279970jmbq1v5ikvvphalwsm5n2i5gw61kigwnihkkvnyadmerwb26oy7esskkvs4whslpfihh74wxhbloskdlsvjxn6rwhrsaa4uv023h-Photoroom.png"
-                                alt="Car">
-                        </div>
-                        <div class="car-details">
-                            <h4>Mercedes C63</h4>
-                            <p class="price">Rp 2.800.000 <span>/ hari</span></p>
-                            <div class="specs">
-                                <span><i class="fa-solid fa-chair"></i> 4</span>
-                                <span><i class="fa-solid fa-suitcase"></i> 2</span>
-                            </div>
-                            <button class="btn-rent"
-                                onclick="window.location.href='booking.php?mobil=Mercedes C63'">Sewa Sekarang</button>
-                        </div>
-                    </div>
-
-                    <div class="car-card glass-panel">
-                        <div class="card-top">
-                            <span class="car-tag">Manual</span>
-                            <div class="status-badge available">Tersedia</div>
-                        </div>
-                        <div class="car-img-container">
-                            <img src="gambar/Toyota-Hilux-PNG-Isolated-HD-Photoroom.png" alt="Car">
-                        </div>
-                        <div class="car-details">
-                            <h4>Toyota Hilux</h4>
-                            <p class="price">Rp 1.200.000 <span>/ hari</span></p>
-                            <div class="specs">
-                                <span><i class="fa-solid fa-chair"></i> 5</span>
-                                <span><i class="fa-solid fa-suitcase"></i> 10+</span>
-                            </div>
-                            <button class="btn-rent"
-                                onclick="window.location.href='booking.php?mobil=Toyota Hilux'">Sewa Sekarang</button>
-                        </div>
-                    </div>
+                            <?php
+                        }
+                    } else {
+                        echo "<p style='color: white; grid-column: 1/-1; text-align: center;'>Tidak ada mobil yang ditemukan sesuai filter.</p>";
+                    }
+                    ?>
 
                 </div>
 
                 <div class="pagination">
                     <a href="#" class="page-link"><i class="fa-solid fa-chevron-left"></i></a>
                     <a href="#" class="page-link active">1</a>
-                    <a href="catalog2.php" class="page-link">2</a>
-                    <a href="catalog3.php" class="page-link">3</a>
-                    <a href="catalog2.php" class="page-link"><i class="fa-solid fa-chevron-right"></i></a>
+                    <a href="#" class="page-link">2</a>
+                    <a href="#" class="page-link"><i class="fa-solid fa-chevron-right"></i></a>
                 </div>
 
             </main>
@@ -259,8 +215,8 @@
             </div>
         </footer>
     </div>
+    
     <?php include 'login.php'; ?>
 
 </body>
-
 </html>

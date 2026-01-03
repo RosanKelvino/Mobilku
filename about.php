@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="about.css">
+    <link rel="stylesheet" href="css/about.css">
 </head>
 
 <body>
@@ -19,7 +19,9 @@
     <div class="container">
         <nav class="navbar glass-panel">
             <div class="logo">
-                <i class="fa-solid fa-car-side"></i> MobilKu
+                <a href="index.php">
+                    <i class="fa-solid fa-car-side"></i> MobilKu
+                </a>
             </div>
             <ul class="nav-links">
                 <li><a href="index.php">Home</a></li>

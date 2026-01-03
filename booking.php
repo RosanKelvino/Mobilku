@@ -1,3 +1,64 @@
+<?php
+include 'db.php'; 
+
+if (!isset($_SESSION['user_id'])) {
+    echo "<script>alert('Silakan login terlebih dahulu untuk melakukan pemesanan!'); window.location.href='login.php';</script>";
+    exit();
+}
+
+$mobil_data = null;
+$id_mobil = '';
+
+if (isset($_GET['mobil_id'])) {
+    $id_mobil = $_GET['mobil_id'];
+    $q = $conn->query("SELECT * FROM mobil WHERE id = $id_mobil");
+    if ($q->num_rows > 0) {
+        $mobil_data = $q->fetch_assoc();
+    } else {
+        echo "<script>alert('Mobil tidak ditemukan!'); window.location.href='catalog.php';</script>";
+        exit();
+    }
+} else {
+    echo "<script>alert('Silakan pilih mobil dari katalog terlebih dahulu.'); window.location.href='catalog.php';</script>";
+    exit();
+}
+
+if (isset($_POST['submit_booking'])) {
+    $user_id     = $_SESSION['user_id'];
+    $mobil_id    = $_POST['mobil_id'];
+    $tgl_mulai   = $_POST['tgl_mulai'];
+    $tgl_selesai = $_POST['tgl_selesai'];
+    $layanan     = $_POST['layanan'];
+    
+    if ($tgl_selesai < $tgl_mulai) {
+        echo "<script>alert('Tanggal selesai tidak boleh lebih awal dari tanggal mulai!');</script>";
+    } else {
+        $start  = new DateTime($tgl_mulai);
+        $end    = new DateTime($tgl_selesai);
+        $diff   = $start->diff($end);
+        $durasi = $diff->days + 1; // Hitung minimal 1 hari (misal sewa tgl 1 s/d 1 = 1 hari)
+        
+        $m = $conn->query("SELECT harga_per_hari FROM mobil WHERE id = $mobil_id")->fetch_assoc();
+        $total_harga = $m['harga_per_hari'] * $durasi;
+
+        if ($layanan == 'Dengan Supir') {
+            $total_harga += (150000 * $durasi); 
+        }
+
+        $sql = "INSERT INTO pesanan (user_id, mobil_id, tanggal_mulai, tanggal_selesai, layanan, total_harga, status_pembayaran) 
+                VALUES ('$user_id', '$mobil_id', '$tgl_mulai', '$tgl_selesai', '$layanan', '$total_harga', 'Belum Bayar')";
+
+        if ($conn->query($sql)) {
+            $last_id = $conn->insert_id;
+            echo "<script>window.location.href='payment.php?id_pesanan=$last_id';</script>";
+            exit();
+        } else {
+            echo "<script>alert('Terjadi kesalahan sistem: " . $conn->error . "');</script>";
+        }
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="id">
 
@@ -8,10 +69,9 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="booking.css">
-    <link rel="stylesheet" href="about.css">
-
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/booking.css">
+    <link rel="stylesheet" href="css/about.css">
 </head>
 
 <body>
@@ -23,7 +83,9 @@
 
         <nav class="navbar glass-panel">
             <div class="logo">
-                <i class="fa-solid fa-car-side"></i> MobilKu
+                <a href="index.php">
+                    <i class="fa-solid fa-car-side"></i> MobilKu
+                </a>
             </div>
             <ul class="nav-links">
                 <li><a href="index.php">Beranda</a></li>
@@ -32,51 +94,48 @@
                 <li><a href="about.php">Tentang</a></li>
             </ul>
             <div class="nav-actions">
-                <button class="btn-transparent">Masuk</button>
-                <button class="btn-primary">Daftar</button>
+                <span style="color: white; margin-right: 15px;">Hai, <?php echo $_SESSION['nama']; ?></span>
+                <a href="logout.php" class="btn-primary">Logout</a>
             </div>
         </nav>
 
-        <?php
-        $mobilDipilih = isset($_GET['mobil']) ? $_GET['mobil'] : '';
-        ?>
+        <h1 style="text-align: center; margin-bottom: 10px; margin-top: 30px;">Konfirmasi Pesanan</h1>
+        <p style="text-align: center; margin-bottom: 30px;">Lengkapi detail sewa untuk <strong><?php echo $mobil_data['nama_mobil']; ?></strong></p>
 
-        <h1 style="text-align: center; margin-bottom: 10px; margin-top: 30px;">Pemesanan Mobil</h1>
-        <p style="text-align: center; margin-bottom: 30px;">Lengkapi data pemesanan mobil kamu</p>
+        <form action="" method="post" class="glass-panel form-booking">
+            
+            <input type="hidden" name="mobil_id" value="<?php echo $id_mobil; ?>">
 
-        <form action="payment.php" method="post" class="glass-panel form-booking">
+            <div class="form-group">
+                <label>Mobil yang dipilih</label>
+                <input type="text" value="<?php echo $mobil_data['nama_mobil']; ?>" readonly style="background: rgba(0,0,0,0.3); color: #ddd; cursor: not-allowed;">
+            </div>
 
-            <label>Nama Lengkap</label>
-            <input type="text" name="nama" required placeholder="Masukkan nama lengkap">
+            <div class="form-group">
+                <label>Harga Per Hari</label>
+                <input type="text" value="Rp <?php echo number_format($mobil_data['harga_per_hari'], 0, ',', '.'); ?>" readonly style="background: rgba(0,0,0,0.3); color: #ddd;">
+            </div>
 
-            <label>No HP</label>
-            <input type="tel" name="hp" required placeholder="08xxxxxxxxxx">
+            <div class="form-group">
+                <label>Jenis Layanan</label>
+                <select name="layanan" required class="glass-input" style="background: rgba(255,255,255,0.1); color: white;">
+                    <option value="Lepas Kunci" style="color: black;">Lepas Kunci (Setir Sendiri)</option>
+                    <option value="Dengan Supir" style="color: black;">Dengan Supir (+Rp 150.000/hari)</option>
+                </select>
+            </div>
 
-            <label>Pilih Mobil</label>
-            <select name="mobil" required>
-                <option value="">-- Pilih Mobil --</option>
-                <option value="Audi A8 L" <?= $mobilDipilih == 'Audi A8 L' ? 'selected' : '' ?>>Audi A8 L</option>
-                <option value="Jeep Cherokee" <?= $mobilDipilih == 'Jeep Cherokee' ? 'selected' : '' ?>>Jeep Cherokee</option>
-                <option value="BMW X6" <?= $mobilDipilih == 'BMW X6' ? 'selected' : '' ?>>BMW X6</option>
-                <option value="Porsche Cayman" <?= $mobilDipilih == 'Porsche Cayman' ? 'selected' : '' ?>>Porsche Cayman</option>
-                <option value="Mercedes C63" <?= $mobilDipilih == 'Mercedes C63' ? 'selected' : '' ?>>Mercedes C63</option>
-                <option value="Toyota Hilux" <?= $mobilDipilih == 'Toyota Hilux' ? 'selected' : '' ?>>Toyota Hilux</option>
-            </select>
+            <div class="form-group">
+                <label>Tanggal Mulai Sewa</label>
+                <input type="date" name="tgl_mulai" required class="glass-input" style="color-scheme: dark;">
+            </div>
 
-            <label>Jenis Layanan</label>
-            <select name="layanan" required>
-                <option value="Lepas Kunci">Lepas Kunci</option>
-                <option value="Dengan Supir">Dengan Supir (+Rp 150.000)</option>
-            </select>
+            <div class="form-group">
+                <label>Tanggal Selesai Sewa</label>
+                <input type="date" name="tgl_selesai" required class="glass-input" style="color-scheme: dark;">
+            </div>
 
-            <label>Tanggal Mulai</label>
-            <input type="date" name="tgl_mulai" required>
-
-            <label>Tanggal Selesai</label>
-            <input type="date" name="tgl_selesai" required>
-
-            <button type="submit" class="btn-primary" style="width: 100%; margin-top: 20px;">
-                Lanjut ke Pembayaran
+            <button type="submit" name="submit_booking" class="btn-primary" style="width: 100%; margin-top: 20px;">
+                Lanjut ke Pembayaran <i class="fa-solid fa-arrow-right"></i>
             </button>
         </form>
 
@@ -98,6 +157,7 @@
             </div>
         </footer>
     </div>
+    
     <?php include 'login.php'; ?>
 </body>
 

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profil Pengguna - Rental Mobil</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -157,8 +157,9 @@
     <nav class="container">
         <nav class="navbar glass-panel">
             <div class="logo">
-
-                <i class="fa-solid fa-car-side"></i> MobilKu
+                <a href="index.php">
+                    <i class="fa-solid fa-car-side"></i> MobilKu
+                </a>
             </div>
 
             <ul class="nav-links">

@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pesanan Berhasil - MobilKu</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="booking.css">
-    <link rel="stylesheet" href="about.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/booking.css">
+    <link rel="stylesheet" href="css/about.css">
     <style>
         body {
             padding-top: 80px;
@@ -20,7 +20,11 @@
 <body>
     <div class="container">
         <nav class="navbar glass-panel">
-            <div class="logo"><i class="fa-solid fa-car-side"></i> MobilKu</div>
+            <div class="logo">
+                <a href="index.php">
+                    <i class="fa-solid fa-car-side"></i> MobilKu
+                </a>
+            </div>
             <ul class="nav-links">
                 <li><a href="index.php">Beranda</a></li>
                 <li><a href="catalog.php">Katalog</a></li>
