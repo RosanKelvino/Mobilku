@@ -1,4 +1,8 @@
-<?php include "db.php"; ?>
+<?php 
+session_start(); 
+include "db.php"; 
+
+?>
 
 <!DOCTYPE html>
 <html lang="id">
@@ -7,6 +11,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MobilKu - Sewa Mobil Premium</title>
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
@@ -23,20 +28,33 @@
 
         <nav class="navbar glass-panel">
             <div class="logo">
-                <a href="index.php">
+                <a href="index.php" style="text-decoration: none; color: inherit;">
                     <i class="fa-solid fa-car-side"></i> MobilKu
                 </a>
             </div>
 
             <ul class="nav-links">
-                <li><a href="#" class="active">Beranda</a></li>
+                <li><a href="index.php" class="active">Beranda</a></li>
                 <li><a href="catalog.php">Katalog</a></li>
                 <li><a href="services.php">Layanan</a></li>
                 <li><a href="about.php">Tentang</a></li>
             </ul>
+
             <div class="nav-actions">
-                <button class="btn-transparent">Masuk</button>
-                <button class="btn-primary">Daftar</button>
+                <?php if (isset($_SESSION['username'])): ?>
+                    <a href="profile.php" class="btn-transparent" style="text-decoration:none; display:flex; align-items:center; gap:5px;">
+                        <i class="fa-solid fa-user"></i> 
+                        <span><?php echo htmlspecialchars($_SESSION['username']); ?></span>
+                    </a>
+                    
+                    <a href="logout.php" class="btn-primary" style="padding: 10px 15px;" onclick="return confirm('Yakin ingin keluar?');">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                    </a>
+
+                <?php else: ?>
+                    <button class="btn-transparent" onclick="openLoginModal()">Masuk</button>
+                    <button class="btn-primary" onclick="window.location.href='register.php'">Daftar</button>
+                <?php endif; ?>
             </div>
         </nav>
 
@@ -44,8 +62,7 @@
             <div class="hero-content">
                 <span class="badge">🔥 Sewa Mobil Termudah</span>
                 <h1>Jelajahi Kota dengan <br><span class="text-gradient">Mobil Impianmu</span></h1>
-                <p>Nikmati perjalanan nyaman dengan armada premium kami. Harga transparan, asuransi lengkap, dan lepas
-                    kunci.</p>
+                <p>Nikmati perjalanan nyaman dengan armada premium kami. Harga transparan, asuransi lengkap, dan lepas kunci.</p>
 
                 <div class="hero-stats">
                     <div class="stat-item">
@@ -64,10 +81,7 @@
             </div>
 
             <div class="hero-image">
-                <img src="gambar/Tohoto_mazlika_si_poridim_až_vyhraju_ve_sportce-Tesla_X_plaid-removebg-preview.png"
-                    alt="Sport Car">
-
-
+                <img src="gambar/Tohoto_mazlika_si_poridim_až_vyhraju_ve_sportce-Tesla_X_plaid-removebg-preview.png" alt="Sport Car">
             </div>
         </header>
 
@@ -95,8 +109,7 @@
                             <span><i class="fa-solid fa-gas-pump"></i> Bensin</span>
                             <span><i class="fa-solid fa-couch"></i> 4 Kursi</span>
                         </div>
-                        <button class="btn-rent" onclick="window.location.href='booking.php?mobil=Audi A8 L'">Sewa
-                            Sekarang</button>
+                        <button class="btn-rent" onclick="window.location.href='booking.php?mobil=Audi A8 L'">Sewa Sekarang</button>
                     </div>
                 </div>
 
@@ -115,8 +128,7 @@
                             <span><i class="fa-solid fa-gas-pump"></i> Solar</span>
                             <span><i class="fa-solid fa-couch"></i> 6 Kursi</span>
                         </div>
-                        <button class="btn-rent" onclick="window.location.href='booking.php?mobil=Jeep Cherokee'">Sewa
-                            Sekarang</button>
+                        <button class="btn-rent" onclick="window.location.href='booking.php?mobil=Jeep Cherokee'">Sewa Sekarang</button>
                     </div>
                 </div>
 
@@ -135,13 +147,13 @@
                             <span><i class="fa-solid fa-gas-pump"></i> Hybrid</span>
                             <span><i class="fa-solid fa-couch"></i> 4 Kursi</span>
                         </div>
-                        <button class="btn-rent" onclick="window.location.href='booking.php?mobil=BMW X6'">Sewa
-                            Sekarang</button>
+                        <button class="btn-rent" onclick="window.location.href='booking.php?mobil=BMW X6'">Sewa Sekarang</button>
                     </div>
                 </div>
 
             </div>
         </section>
+
         <footer class="glass-panel footer-simple">
             <div class="footer-content">
                 <div class="footer-brand">
@@ -160,8 +172,14 @@
         </footer>
     </div>
 
-
     <?php include 'login.php'; ?>
+    
+    <script>
+        function openLoginModal() {
+
+            console.log("Tombol masuk diklik"); 
+        }
+    </script>
 </body>
 
 </html>

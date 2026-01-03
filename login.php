@@ -1,26 +1,24 @@
 <?php
-
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
+session_start();
 include 'db.php';
 
 if (isset($_POST['register'])) {
-    $nama  = $conn->real_escape_string($_POST['nama_lengkap']); 
+    $nama  = $conn->real_escape_string($_POST['nama_lengkap']);
     $email = $conn->real_escape_string($_POST['email']);
-    $pass  = password_hash($_POST['password'], PASSWORD_DEFAULT); 
-    $hp    = $conn->real_escape_string($_POST['no_hp']); // Pastikan input HTML ada name="no_hp"
+    $hp    = $conn->real_escape_string($_POST['no_hp']);
+    $pass  = $_POST['password'];
 
-    $check = $conn->query("SELECT id FROM users WHERE email = '$email'");
-    if ($check->num_rows > 0) {
+    $cek = $conn->query("SELECT id FROM users WHERE email = '$email'");
+    if ($cek->num_rows > 0) {
         echo "<script>alert('Email sudah terdaftar!');</script>";
     } else {
-        $sql = "INSERT INTO users (nama_lengkap, email, password, no_hp) VALUES ('$nama', '$email', '$pass', '$hp')";
+        $pass_hash = password_hash($pass, PASSWORD_DEFAULT);
+        
+        $sql = "INSERT INTO users (nama_lengkap, email, password, no_hp) VALUES ('$nama', '$email', '$pass_hash', '$hp')";
         if ($conn->query($sql)) {
-            echo "<script>alert('Pendaftaran berhasil! Silakan login.'); window.location.href='login.php';</script>";
+            echo "<script>alert('Pendaftaran Berhasil! Silakan Login.'); window.location.href='login.php';</script>";
         } else {
-            echo "<script>alert('Gagal mendaftar: " . $conn->error . "');</script>";
+            echo "<script>alert('Gagal: " . $conn->error . "');</script>";
         }
     }
 }
@@ -30,21 +28,21 @@ if (isset($_POST['login'])) {
     $pass  = $_POST['password'];
 
     $result = $conn->query("SELECT * FROM users WHERE email = '$email'");
+    
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
-
         if (password_verify($pass, $row['password'])) {
+            // Simpan sesi login
             $_SESSION['user_id'] = $row['id'];
-            $_SESSION['nama'] = $row['nama_lengkap'];
-            $_SESSION['role'] = $row['role'];
-            
+            $_SESSION['nama']    = $row['nama_lengkap'];
+            $_SESSION['role']    = $row['role'];
+
             echo "<script>alert('Login Berhasil!'); window.location.href='index.php';</script>";
-            exit();
         } else {
             echo "<script>alert('Password salah!');</script>";
         }
     } else {
-        echo "<script>alert('Email tidak ditemukan!');</script>";
+        echo "<script>alert('Email tidak terdaftar!');</script>";
     }
 }
 ?>

@@ -1,3 +1,16 @@
+<?php
+include 'db.php';
+
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit();
+}
+
+$id = $_SESSION['user_id'];
+$query = $conn->query("SELECT * FROM users WHERE id = '$id'");
+$data_user = $query->fetch_assoc();
+?>
+
 <!DOCTYPE html>
 <html lang="id">
 
