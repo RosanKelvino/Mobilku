@@ -14,11 +14,10 @@
 
 <body>
 
-    <div class="glow-orb orb-1"
-        style="left: 50%; top: -150px; transform: translateX(-50%); width: 500px; height: 500px;"></div>
-
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
     <div class="container">
-         <?php include 'navbar.php'; ?>
+        <?php include 'navbar.php'; ?>
 
 
         <div class="container">
