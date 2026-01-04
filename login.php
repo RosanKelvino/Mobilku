@@ -1,4 +1,8 @@
 <?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
 include 'db.php';
 
 if (isset($_POST['register'])) {
@@ -12,14 +16,13 @@ if (isset($_POST['register'])) {
         echo "<script>alert('Email sudah terdaftar!');</script>";
     } else {
         $pass_hash = password_hash($pass, PASSWORD_DEFAULT);
-        
         $sql = "INSERT INTO users (nama_lengkap, email, password, no_hp) VALUES ('$nama', '$email', '$pass_hash', '$hp')";
-       if ($conn->query($sql)) {
-    echo "<script>
-        alert('Pendaftaran Berhasil! Silakan Login.'); 
-        window.location.href='index.php?status=success'; 
-    </script>";
-} else {
+        if ($conn->query($sql)) {
+            echo "<script>
+                alert('Pendaftaran Berhasil! Silakan Login.'); 
+                window.location.href='index.php'; 
+            </script>";
+        } else {
             echo "<script>alert('Gagal: " . $conn->error . "');</script>";
         }
     }
@@ -34,10 +37,9 @@ if (isset($_POST['login'])) {
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
         if (password_verify($pass, $row['password'])) {
-            // Simpan sesi login
             $_SESSION['user_id'] = $row['id'];
             $_SESSION['nama']    = $row['nama_lengkap'];
-            $_SESSION['role']    = $row['role'];
+            $_SESSION['role']    = isset($row['role']) ? $row['role'] : 'user';
 
             echo "<script>alert('Login Berhasil!'); window.location.href='index.php';</script>";
         } else {
@@ -58,7 +60,6 @@ if (isset($_POST['login'])) {
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-
         .modal-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0, 0, 0, 0.5); backdrop-filter: blur(15px);
@@ -79,7 +80,7 @@ if (isset($_POST['login'])) {
         .floating-group input {
             width: 100%; padding: 12px 15px 12px 45px;
             background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px; color: white; outline: none;
+            border-radius: 12px; color: white; outline: none; box-sizing: border-box;
         }
         .btn-gradient-auth {
             width: 100%; padding: 12px; margin-top: 15px; border: none; border-radius: 12px;
@@ -88,7 +89,7 @@ if (isset($_POST['login'])) {
         .close-modal { position: absolute; top: 15px; right: 20px; font-size: 25px; cursor: pointer; opacity: 0.6; }
         .close-modal:hover { opacity: 1; }
         .auth-footer { margin-top: 20px; font-size: 14px; }
-        .auth-footer a { color: #110edcff; text-decoration: none; font-weight: bold; }
+        .auth-footer a { color: #4754e6; text-decoration: none; font-weight: bold; }
     </style>
 </head>
 <body>
@@ -102,9 +103,10 @@ if (isset($_POST['login'])) {
                 <p>Masuk untuk akses armada MobilKu</p>
             </div>
             
-            <form class="auth-form" method="post">
+            <form class="auth-form" method="post" action="">
                 <div class="floating-group">
-                    <i class='bx bxs-envelope'></i> <input type="text" name="email" placeholder="Email Address" required>
+                    <i class='bx bxs-envelope'></i> 
+                    <input type="email" name="email" placeholder="Email Address" required>
                 </div>
                 <div class="floating-group">
                     <i class='bx bxs-lock-alt'></i>
@@ -114,7 +116,7 @@ if (isset($_POST['login'])) {
             </form>
 
             <div class="auth-footer">
-                <p>Belum punya akun? <a href="#" id="switchRegister">Daftar Gratis</a></p>
+                <p>Belum punya akun? <a href="javascript:void(0)" id="switchRegister">Daftar Gratis</a></p>
             </div>
         </div>
     </div>
@@ -128,17 +130,15 @@ if (isset($_POST['login'])) {
                 <p>Daftar sekarang untuk mulai menyewa</p>
             </div>
 
-            <form class="auth-form" method="post">
+            <form class="auth-form" method="post" action="">
                 <div class="floating-group">
                     <i class='bx bxs-user-detail'></i>
                     <input type="text" name="nama_lengkap" placeholder="Nama Lengkap" required>
                 </div>
-
                 <div class="floating-group">
                     <i class='bx bxs-phone'></i>
                     <input type="text" name="no_hp" placeholder="Nomor HP / WA" required>
                 </div>
-
                 <div class="floating-group">
                     <i class='bx bxs-envelope'></i>
                     <input type="email" name="email" placeholder="Email Aktif" required>
@@ -151,7 +151,7 @@ if (isset($_POST['login'])) {
             </form>
 
             <div class="auth-footer">
-                <p>Sudah punya akun? <a href="#" id="switchLogin">Masuk di sini</a></p>
+                <p>Sudah punya akun? <a href="javascript:void(0)" id="switchLogin">Masuk di sini</a></p>
             </div>
         </div>
     </div>
@@ -161,41 +161,52 @@ if (isset($_POST['login'])) {
             const loginModal = document.getElementById('loginModal');
             const registerModal = document.getElementById('registerModal');
             
-            const btnMasuk = document.querySelector('.btn-transparent'); 
-            const btnDaftar = document.querySelector('.nav-actions .btn-primary');
+            const btnMasuk = document.getElementById('btnMasukNav'); 
+            const btnDaftar = document.getElementById('btnDaftarNav');
             
             const closeLogin = document.getElementById('closeLoginBtn');
             const closeRegister = document.getElementById('closeRegisterBtn');
+            
             const switchRegister = document.getElementById('switchRegister');
             const switchLogin = document.getElementById('switchLogin');
 
-            if(btnMasuk) btnMasuk.onclick = (e) => { e.preventDefault(); loginModal.style.display = 'flex'; };
-            if(btnDaftar) btnDaftar.onclick = (e) => { e.preventDefault(); registerModal.style.display = 'flex'; };
+            if(btnMasuk) {
+                btnMasuk.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    loginModal.style.display = 'flex';
+                });
+            }
+
+            if(btnDaftar) {
+                btnDaftar.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    registerModal.style.display = 'flex';
+                });
+            }
 
             if(closeLogin) closeLogin.onclick = () => loginModal.style.display = 'none';
             if(closeRegister) closeRegister.onclick = () => registerModal.style.display = 'none';
 
-            if(switchRegister) switchRegister.onclick = (e) => {
-                e.preventDefault();
-                loginModal.style.display = 'none';
-                registerModal.style.display = 'flex';
-            };
-            if(switchLogin) switchLogin.onclick = (e) => {
-                e.preventDefault();
-                registerModal.style.display = 'none';
-                loginModal.style.display = 'flex';
-            };
+            if(switchRegister) {
+                switchRegister.onclick = (e) => {
+                    e.preventDefault();
+                    loginModal.style.display = 'none';
+                    registerModal.style.display = 'flex';
+                };
+            }
+            if(switchLogin) {
+                switchLogin.onclick = (e) => {
+                    e.preventDefault();
+                    registerModal.style.display = 'none';
+                    loginModal.style.display = 'flex';
+                };
+            }
 
             window.onclick = (event) => {
                 if (event.target === loginModal) loginModal.style.display = 'none';
                 if (event.target === registerModal) registerModal.style.display = 'none';
             };
-            document.addEventListener('DOMContentLoaded', () => {
-
- 
         });
     </script>
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-
 </body>
 </html>

@@ -1,3 +1,18 @@
+<?php
+session_start();
+include 'db.php';
+
+$id_sewa = $_GET['id'] ?? '';
+$query = $conn->query("SELECT sewa.*, mobil.nama_mobil FROM sewa 
+                       JOIN mobil ON sewa.mobil_id = mobil.id 
+                       WHERE sewa.id = '$id_sewa'");
+$data = $query->fetch_assoc();
+
+if (!$data) {
+    echo "Data tidak ditemukan";
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="id">
 
@@ -15,55 +30,23 @@
 <body>
 
     <div class="container">
-        <nav class="navbar glass-panel">
-            <div class="logo">
-                <a href="index.php">
-                    <i class="fa-solid fa-car-side"></i> MobilKu
-                </a>
-            </div>
-            <ul class="nav-links">
-                <li><a href="index.php">Beranda</a></li>
-                <li><a href="catalog.php">Katalog</a></li>
-                <li><a href="services.php">Layanan</a></li>
-                <li><a href="about.php">Tentang</a></li>
-            </ul>
-        </nav>
+        <?php include 'navbar.php'; ?>
 
-        <h1 style="text-align: center; margin-top: 30px;">Pembayaran</h1>
-        <p style="text-align: center; margin-bottom: 20px;">Silakan lakukan pembayaran untuk menyelesaikan pesanan</p>
 
-        <div class="glass-panel payment-box" style="max-width: 600px; margin: 0 auto;">
-            <h3>Ringkasan Pesanan</h3>
-            <div style="margin: 20px 0; line-height: 1.6;">
-                <p><strong>Nama:</strong> <?php echo $_POST['nama'] ?? '-'; ?></p>
-                <p><strong>Mobil:</strong> <?php echo $_POST['mobil']; ?></p>
-                <p><strong>Layanan:</strong> <?php echo $_POST['layanan']; ?></p>
-                <p><strong>Tanggal:</strong> <?php echo $_POST['tgl_mulai']; ?> s/d <?php echo $_POST['tgl_selesai']; ?>
-                </p>
-            </div>
-
-            <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.2); margin: 20px 0;">
-
-            <h3>Total Bayar (DP)</h3>
-            <h2 class="text-gradient" style="font-size: 2rem;">Rp 500.000</h2>
-
+        <div class="container glass-panel"
+            style="max-width: 500px; margin: 50px auto; padding: 30px; text-align:center;">
+            <h2>Konfirmasi Pembayaran</h2>
+            <p>Mobil: <strong><?php echo $data['nama_mobil']; ?></strong></p>
+            <h1 style="color: #4754e6;">Rp <?php echo number_format($data['total_harga'], 0, ',', '.'); ?></h1>
             <div style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 10px; margin: 20px 0;">
-                <p>Silakan transfer ke:</p>
-                <ul style="list-style: none; padding: 0; margin-top: 10px;">
-                    <li style="margin-bottom: 5px;"><i class="fa-solid fa-building-columns"></i> BCA:
-                        <strong>123456789</strong> a.n MobilKu</li>
-                    <li><i class="fa-solid fa-building-columns"></i> Mandiri: <strong>987654321</strong> a.n MobilKu
-                    </li>
-                </ul>
+                <p>Transfer ke <strong>BCA: 123456789</strong></p>
             </div>
-
-            <form action="order.php" method="post">
-                <button type="submit" class="btn-primary" style="width: 100%;">
-                    Saya Sudah Bayar
-                </button>
+            <form action="order.php" method="POST">
+                <input type="hidden" name="id_sewa" value="<?php echo $id_sewa; ?>">
+                <button type="submit" name="konfirmasi_bayar" class="btn-primary" style="width:100%;">Saya Sudah
+                    Bayar</button>
             </form>
         </div>
-
         <footer class="glass-panel footer-simple">
             <div class="footer-content">
                 <div class="footer-brand">

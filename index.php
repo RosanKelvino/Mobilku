@@ -26,6 +26,7 @@ include "db.php";
     <div class="container">
 
         <?php include 'navbar.php'; ?>
+        
         <header class="hero">
             <div class="hero-content">
                 <span class="badge">🔥 Sewa Mobil Termudah</span>
@@ -77,7 +78,12 @@ include "db.php";
                             <span><i class="fa-solid fa-gas-pump"></i> Bensin</span>
                             <span><i class="fa-solid fa-couch"></i> 4 Kursi</span>
                         </div>
-                        <button class="btn-rent" onclick="window.location.href='booking.php?mobil=Audi A8 L'">Sewa Sekarang</button>
+                        
+                        <?php if (isset($_SESSION['user_id'])): ?>
+                            <button class="btn-rent" onclick="window.location.href='booking.php?mobil_id=1'">Sewa Sekarang</button>
+                        <?php else: ?>
+                            <button class="btn-rent" onclick="openLoginModal()">Sewa Sekarang</button>
+                        <?php endif; ?>
                     </div>
                 </div>
 
@@ -96,7 +102,12 @@ include "db.php";
                             <span><i class="fa-solid fa-gas-pump"></i> Solar</span>
                             <span><i class="fa-solid fa-couch"></i> 6 Kursi</span>
                         </div>
-                        <button class="btn-rent" onclick="window.location.href='booking.php?mobil=Jeep Cherokee'">Sewa Sekarang</button>
+                        
+                        <?php if (isset($_SESSION['user_id'])): ?>
+                            <button class="btn-rent" onclick="window.location.href='booking.php?mobil_id=2'">Sewa Sekarang</button>
+                        <?php else: ?>
+                            <button class="btn-rent" onclick="openLoginModal()">Sewa Sekarang</button>
+                        <?php endif; ?>
                     </div>
                 </div>
 
@@ -115,7 +126,12 @@ include "db.php";
                             <span><i class="fa-solid fa-gas-pump"></i> Hybrid</span>
                             <span><i class="fa-solid fa-couch"></i> 4 Kursi</span>
                         </div>
-                        <button class="btn-rent" onclick="window.location.href='booking.php?mobil=BMW X6'">Sewa Sekarang</button>
+                        
+                        <?php if (isset($_SESSION['user_id'])): ?>
+                            <button class="btn-rent" onclick="window.location.href='booking.php?mobil_id=3'">Sewa Sekarang</button>
+                        <?php else: ?>
+                            <button class="btn-rent" onclick="openLoginModal()">Sewa Sekarang</button>
+                        <?php endif; ?>
                     </div>
                 </div>
 
@@ -131,7 +147,7 @@ include "db.php";
                 <div class="footer-contact">
                     <p><i class="fa-solid fa-location-dot"></i> Jl. Merdeka No. 45, Jakarta Selatan</p>
                     <p><i class="fa-solid fa-phone"></i> +62 812 3456 7890</p>
-                    <p><i class="fa-solid fa-envelope"></i> hello@luxedrive.com</p>
+                    <p><i class="fa-solid fa-envelope"></i> hello@MobilKu.com</p>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -144,11 +160,15 @@ include "db.php";
     
     <script>
         function openLoginModal() {
-
-            console.log("Tombol masuk diklik"); 
+            const loginModal = document.getElementById('loginModal');
+            if(loginModal) {
+                loginModal.style.display = 'flex';
+            } else {
+                console.error("Modal login tidak ditemukan! Pastikan login.php ter-include dengan benar.");
+                alert("Silakan login melalui tombol Masuk di pojok kanan atas.");
+            }
         }
     </script>
     
 </body>
-
 </html>
