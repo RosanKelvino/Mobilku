@@ -35,7 +35,7 @@ include "db.php";
 
                 <div class="hero-stats">
                     <div class="stat-item">
-                        <h2>50+</h2>
+                        <h2>20+</h2>
                         <p>Tipe Mobil</p>
                     </div>
                     <div class="stat-item">
@@ -58,7 +58,7 @@ include "db.php";
         <section class="car-section">
             <div class="section-header">
                 <h3>Armada Terpopuler</h3>
-                <a href="catalog.php">Lihat Semua <i class="fa-solid fa-arrow-right-long"></i></a>
+                <a href="catalog.php">Lihat Semua &nbsp;<i class="fa-solid fa-arrow-right-long"></i></a>
             </div>
 
             <div class="car-grid">

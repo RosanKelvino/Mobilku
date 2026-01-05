@@ -90,8 +90,8 @@ if (isset($_POST['submit_booking'])) {
             <div class="form-group">
                 <label>Layanan</label>
                 <select name="layanan" class="glass-input">
-                    <option value="Lepas Kunci" style="color:black;">Lepas Kunci</option>
-                    <option value="Dengan Supir" style="color:black;">Dengan Supir (+150rb/hari)</option>
+                    <option value="Lepas Kunci" style="color:white;">Lepas Kunci</option>
+                    <option value="Dengan Supir" style="color:white;">Dengan Supir (+150rb/hari)</option>
                 </select>
             </div>
 
@@ -108,8 +108,8 @@ if (isset($_POST['submit_booking'])) {
             <div class="form-group">
                 <label>Pembayaran</label>
                 <select name="metode_pembayaran" class="glass-input">
-                    <option value="Transfer" style="color:black;">Transfer Bank</option>
-                    <option value="Cash" style="color:black;">Tunai (Cash)</option>
+                    <option value="Transfer" style="color:white;">Transfer Bank</option>
+                    <option value="Cash" style="color:white;">Tunai (Cash)</option>
                 </select>
             </div>
 

@@ -182,10 +182,10 @@ $data_user = $query->fetch_assoc();
 </head>
 
 <body>
-    <div class="container"><?php include 'navbar.php'; ?></div>
+    <div class="container">
     <div class="glow-orb orb-1"></div>
     <div class="glow-orb orb-2"></div>
-    
+    <?php include 'navbar.php'; ?>
     <div class="profile-wrapper">
         <aside class="profile-sidebar glass-panel">
             <div class="profile-avatar-container">
@@ -270,6 +270,7 @@ $data_user = $query->fetch_assoc();
                 </button>
             </form>
         </section>
+    </div>
     </div>
 </body>
 

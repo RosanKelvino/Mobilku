@@ -22,18 +22,13 @@ if (isset($_POST['id_sewa'])) {
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/booking.css">
     <link rel="stylesheet" href="css/about.css">
-    <style>
-        body {
-            padding-top: 80px;
-        }
-    </style>
+    
 
 </head>
 
 <body>
     <div class="container">
         <?php include 'navbar.php'; ?>
-    </div>
 
 
     <div class="container glass-panel" style="max-width: 600px; margin: 80px auto; text-align: center; padding: 40px;">
@@ -46,6 +41,7 @@ if (isset($_POST['id_sewa'])) {
             Sewa</a>
     </div>
 
+    </div>
 
 </body>
 
