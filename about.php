@@ -22,43 +22,40 @@ include 'db.php';
     <div class="glow-orb orb-2"></div>
 
     <div class="container">
-        <?php include 'navbar.php'; ?>
+         <?php include 'navbar.php'; ?>
 
 
         <div class="container">
 
             <header class="about-header">
                 <h1>Mengubah Cara Anda <span class="text-gradient">Bergerak</span></h1>
-                <p>Didirikan pada 2018, LuxeDrive hadir untuk memberikan pengalaman berkendara premium yang aman,
+                <p>Didirikan pada 2023, Mobilku hadir untuk memberikan pengalaman berkendara premium yang aman,
                     nyaman, dan transparan bagi semua orang.</p>
             </header>
 
             <section class="story-section glass-panel">
                 <div class="story-img">
-                    <img src="https://images.unsplash.com/photo-1485291571150-772bcfc10da5?q=80&w=1000&auto=format&fit=crop"
+                    <img src="gambar/Garage MobilKu.png"
                         alt="Office Garage">
                 </div>
                 <div class="story-content">
                     <span class="sub-title">CERITA KAMI</span>
                     <h2>Lebih Dari Sekadar <br>Rental Mobil</h2>
-                    <p>Bermula dari garasi kecil dengan 3 unit mobil, kami menyadari bahwa menyewa mobil seringkali
-                        menjadi proses yang rumit dan penuh ketidakpastian.</p>
-                    <p>LuxeDrive lahir dengan satu misi: <strong>Menghilangkan kerumitan itu.</strong> Kami merawat
-                        setiap armada seperti mobil sendiri, menjamin kebersihan, dan memastikan mesin selalu prima
-                        sebelum kunci diserahkan ke tangan Anda.</p>
+                    <p>Mobilku hadir untuk memberikan pengalaman berkendara yang berbeda. Sejak mulai beroperasi dengan 3 unit berbeda, misi kami tidak pernah berubah:<strong> Menyediakan kendaraan yang bersih, prima, dan proses sewa yang transparan.</strong></p>
+                    <p>Itulah mengapa di  <strong>Mobilku</strong>, setiap unit diperlakukan layaknya kendaraan pribadi. Kami melakukan inspeksi menyeluruh pada mesin dan memastikan kebersihan kabin yang higienis sebelum kunci beralih ke tangan Anda. Karena bagi kami, Anda bukan sekedar penyewa, melainkan tamu kehormatan dalam setiap perjalanan</p>
 
                     <div class="stats-row">
                         <div class="stat">
-                            <h3>5+</h3>
+                            <h3>3</h3>
                             <span>Tahun</span>
                         </div>
                         <div class="stat">
-                            <h3>200+</h3>
+                            <h3>20+</h3>
                             <span>Armada</span>
                         </div>
                         <div class="stat">
-                            <h3>10k+</h3>
-                            <span>Trip</span>
+                            <h3>5k+</h3>
+                            <span>Pelanggan Puas</span>
                         </div>
                     </div>
                 </div>
@@ -92,7 +89,7 @@ include 'db.php';
 
                     <div class="team-card glass-panel">
                         <div class="member-img">
-                            <img src="https://ui-avatars.com/api/?name=Andi+Pratama&background=random&size=200"
+                            <img src="gambar/Boboiboy_Halilintar-removebg-preview.png"
                                 alt="CEO">
                         </div>
                         <h4>Arefcy Saban</h4>
@@ -101,7 +98,7 @@ include 'db.php';
 
                     <div class="team-card glass-panel">
                         <div class="member-img">
-                            <img src="https://ui-avatars.com/api/?name=Siti+Rahma&background=random&size=200"
+                            <img src="gambar/5d222bf7-790e-41d6-bf74-bf7aacf51f18_removalai_preview.png"
                                 alt="Manager">
                         </div>
                         <h4>Gabriel Jehuda</h4>
@@ -110,7 +107,7 @@ include 'db.php';
 
                     <div class="team-card glass-panel">
                         <div class="member-img">
-                            <img src="https://ui-avatars.com/api/?name=Budi+Santoso&background=random&size=200"
+                            <img src="gambar/7cc98713-bf51-4da0-8447-075a1cf0a419_removalai_preview.png"
                                 alt="Mechanic">
                         </div>
                         <h4>Rosan Kelvino</h4>
@@ -119,7 +116,7 @@ include 'db.php';
 
                     <div class="team-card glass-panel">
                         <div class="member-img">
-                            <img src="https://ui-avatars.com/api/?name=Dian+Putri&background=random&size=200" alt="CS">
+                            <img src="gambar/acff0a0b-e41d-4c8c-9763-44ccf83ebeb4_removalai_preview.png" alt="CS">
                         </div>
                         <h4>Made Obi</h4>
                         <span>Customer Success</span>
@@ -127,10 +124,10 @@ include 'db.php';
 
                     <div class="team-card glass-panel">
                         <div class="member-img">
-                            <img src="https://ui-avatars.com/api/?name=Dian+Putri&background=random&size=200" alt="CS">
+                            <img src="gambar/c5fcd34d-381e-4310-8adb-6f672ec68a25_removalai_preview.png" alt="CS">
                         </div>
                         <h4>Zecharian</h4>
-                        <span>Satpam</span>
+                        <span>Head Manager</span>
                     </div>
 
                 </div>
@@ -143,13 +140,13 @@ include 'db.php';
                         <p>Partner perjalanan terbaik Anda.</p>
                     </div>
                     <div class="footer-contact">
-                        <p><i class="fa-solid fa-location-dot"></i> Jl. Merdeka No. 45, Jakarta Selatan</p>
+                        <p><i class="fa-solid fa-location-dot"></i> Jl. Bedugul No. 39, Denpasar Selatan</p>
                         <p><i class="fa-solid fa-phone"></i> +62 812 3456 7890</p>
-                        <p><i class="fa-solid fa-envelope"></i> hello@luxedrive.com</p>
+                        <p><i class="fa-solid fa-envelope"></i> Mobilku@gmail.com</p>
                     </div>
                 </div>
                 <div class="footer-bottom">
-                    <p>&copy; 2023 LuxeDrive. All rights reserved.</p>
+                    <p>&copy; 2026 Mobilku. All rights reserved.</p>
                 </div>
             </footer>
 

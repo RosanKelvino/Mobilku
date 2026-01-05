@@ -16,16 +16,16 @@
 
     <div class="glow-orb orb-1"></div>
     <div class="glow-orb orb-2"></div>
+
     <div class="container">
-        <?php include 'navbar.php'; ?>
+         <?php include 'navbar.php'; ?>
 
 
         <div class="container">
 
             <header class="service-header">
                 <h1>Solusi Perjalanan <span class="text-gradient">Premium</span></h1>
-                <p>Kami menyediakan berbagai opsi penyewaan yang disesuaikan dengan kebutuhan gaya hidup dan bisnis
-                    Anda.</p>
+                <p>Layanan sewa mobil premium untuk perjalanan yang nyaman dan profesional.</p>
             </header>
 
             <section class="services-section">
@@ -62,29 +62,27 @@
 
                     <div class="service-card glass-panel">
                         <div class="icon-box">
-                            <i class="fa-solid fa-plane-departure"></i>
+                            <i class="fa-solid fa-calendar-day"></i>
                         </div>
-                        <h3>Antar Jemput Bandara</h3>
-                        <p>Layanan VIP penjemputan dari dan ke bandara. Supir kami akan menunggu kedatangan Anda tepat
-                            waktu.</p>
+                        <h3>Sewa Harian</h3>
+                        <p>Sewa mobil fleksibel untuk kebutuhan harian anda. Cocok untuk aktivitas sehari-hari, perjalanan anda, maupun liburan singkat dengan pilihan durasi yang praktis.</p>
                         <ul class="service-features">
-                            <li><i class="fa-solid fa-check"></i> Flight Monitoring</li>
-                            <li><i class="fa-solid fa-check"></i> Free Waiting Time (1 Jam)</li>
-                            <li><i class="fa-solid fa-check"></i> Bantuan Bagasi</li>
+                            <li><i class="fa-solid fa-check"></i> Flexible Duration (6/12/14 Jam)</li>
+                            <li><i class="fa-solid fa-check"></i> Self Drive / With Driver</li>
+                            <li><i class="fa-solid fa-check"></i> Harga Transparan</li>
                         </ul>
                     </div>
 
                     <div class="service-card glass-panel">
                         <div class="icon-box">
-                            <i class="fa-solid fa-gem"></i>
+                            <i class="fa-solid fa-car"></i>
                         </div>
-                        <h3>Wedding & Events</h3>
-                        <p>Buat momen spesial Anda tak terlupakan dengan jajaran mobil mewah kami. Tersedia dekorasi
-                            bunga opsional.</p>
+                        <h3>Drop Off (One Way Trip)</h3>
+                        <p>Layanan perjalanan satu arah tanpa perlu mengembalikan mobil, Solusi praktis untuk perjalanan antar kota maupun tujuan tertentu dengan supir profesional.</p>
                         <ul class="service-features">
-                            <li><i class="fa-solid fa-check"></i> Mobil Pengantin Mewah</li>
-                            <li><i class="fa-solid fa-check"></i> Dekorasi Bunga</li>
-                            <li><i class="fa-solid fa-check"></i> Paket 6 - 10 Jam</li>
+                            <li><i class="fa-solid fa-check"></i> One Way Service</li>
+                            <li><i class="fa-solid fa-check"></i> Profesional Driver</li>
+                            <li><i class="fa-solid fa-check"></i> City To City Trip</li>
                         </ul>
                     </div>
 
@@ -111,7 +109,7 @@
                         <div class="step-number glass-panel">02</div>
                         <div class="step-content">
                             <h4>Booking Online</h4>
-                            <p>Isi formulir data diri dan upload dokumen syarat (KTP/SIM).</p>
+                            <p>Isi formulir data diri.</p>
                         </div>
                     </div>
                     <div class="step-line"></div>
@@ -151,13 +149,13 @@
                     <p>Partner perjalanan terbaik Anda.</p>
                 </div>
                 <div class="footer-contact">
-                    <p><i class="fa-solid fa-location-dot"></i> Jl. Merdeka No. 45, Jakarta Selatan</p>
+                    <p><i class="fa-solid fa-location-dot"></i> Jl. Bedugul No. 39, Denpasar Selatan</p>
                     <p><i class="fa-solid fa-phone"></i> +62 812 3456 7890</p>
-                    <p><i class="fa-solid fa-envelope"></i> hello@luxedrive.com</p>
+                    <p><i class="fa-solid fa-envelope"></i> Mobilku@gmail.com</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2023 LuxeDrive. All rights reserved.</p>
+                <p>&copy; 2026 Mobilku. All rights reserved.</p>
             </div>
         </footer>
     </div>
