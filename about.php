@@ -14,6 +14,31 @@ include 'db.php';
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="css/about.css">
+    
+    <style>
+        .story-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            border-radius: 15px; 
+        }
+
+        .member-img {
+            width: 120px;      
+            height: 120px;     
+            margin: 0 auto 15px; 
+            overflow: hidden;   
+            border-radius: 50%;  
+            border: 3px solid #4754e6; 
+        }
+
+        .member-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;   
+            object-position: top;
+        }
+    </style>
 </head>
 
 <body>
@@ -35,8 +60,7 @@ include 'db.php';
 
             <section class="story-section glass-panel">
                 <div class="story-img">
-                    <img src="gambar/Garage MobilKu.png"
-                        alt="Office Garage">
+                    <img src="gambar/Garage MobilKu.png" alt="Office Garage">
                 </div>
                 <div class="story-content">
                     <span class="sub-title">CERITA KAMI</span>
@@ -67,8 +91,7 @@ include 'db.php';
                     <div class="value-card glass-panel">
                         <div class="value-icon"><i class="fa-solid fa-shield-halved"></i></div>
                         <h4>Keamanan Prioritas</h4>
-                        <p>Setiap mobil dilengkapi asuransi All-Risk dan GPS tracker 24 jam untuk ketenangan pikiran
-                            Anda.</p>
+                        <p>Setiap mobil dilengkapi asuransi All-Risk dan GPS tracker 24 jam untuk ketenangan pikiran Anda.</p>
                     </div>
                     <div class="value-card glass-panel">
                         <div class="value-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
@@ -89,8 +112,7 @@ include 'db.php';
 
                     <div class="team-card glass-panel">
                         <div class="member-img">
-                            <img src="gambar/Boboiboy_Halilintar-removebg-preview.png"
-                                alt="CEO">
+                            <img src="gambar/CEO_Arefcy.png" alt="CEO">
                         </div>
                         <h4>Arefcy Saban</h4>
                         <span>Founder & CEO</span>
@@ -98,17 +120,23 @@ include 'db.php';
 
                     <div class="team-card glass-panel">
                         <div class="member-img">
-                            <img src="gambar/5d222bf7-790e-41d6-bf74-bf7aacf51f18_removalai_preview.png"
-                                alt="Manager">
+                            <img src="gambar/Manager_Rian.png" alt="Head Manager">
                         </div>
-                        <h4>Gabriel Jehuda</h4>
-                        <span>Head of Operations</span>
+                        <h4>Zecharian</h4>
+                        <span>Head Manager</span>
                     </div>
 
                     <div class="team-card glass-panel">
                         <div class="member-img">
-                            <img src="gambar/7cc98713-bf51-4da0-8447-075a1cf0a419_removalai_preview.png"
-                                alt="Mechanic">
+                            <img src="gambar/CS_Obi.png" alt="Customer Services">
+                        </div>
+                        <h4>Made Obi</h4>
+                        <span>Customer Services</span>
+                    </div>
+
+                    <div class="team-card glass-panel">
+                        <div class="member-img">
+                            <img src="gambar/Mechanic_Rosan.png" alt="Head Mechanic">
                         </div>
                         <h4>Rosan Kelvino</h4>
                         <span>Chief Mechanic</span>
@@ -116,18 +144,10 @@ include 'db.php';
 
                     <div class="team-card glass-panel">
                         <div class="member-img">
-                            <img src="gambar/acff0a0b-e41d-4c8c-9763-44ccf83ebeb4_removalai_preview.png" alt="CS">
+                            <img src="gambar/Investor_Gabriel.png" alt="Investor">
                         </div>
-                        <h4>Made Obi</h4>
-                        <span>Customer Success</span>
-                    </div>
-
-                    <div class="team-card glass-panel">
-                        <div class="member-img">
-                            <img src="gambar/c5fcd34d-381e-4310-8adb-6f672ec68a25_removalai_preview.png" alt="CS">
-                        </div>
-                        <h4>Zecharian</h4>
-                        <span>Head Manager</span>
+                        <h4>Gabriel Jehuda</h4>
+                        <span>Major Investor and Largest Shareholder</span>
                     </div>
 
                 </div>
@@ -155,5 +175,4 @@ include 'db.php';
     <?php include 'login.php'; ?>
 
 </body>
-
 </html>

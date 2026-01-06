@@ -8,7 +8,6 @@ include 'db.php';
 
 $where_clauses = [];
 
-// Filter Kategori
 if (isset($_GET['kategori']) && !empty($_GET['kategori'])) {
     $kategori_filter = $_GET['kategori'];
     if(is_array($kategori_filter)){
@@ -34,7 +33,7 @@ if (isset($_GET['max_harga']) && $_GET['max_harga'] != '') {
 }
 
 $sort_option = isset($_GET['sort']) ? $_GET['sort'] : 'default';
-$order_sql = "ORDER BY id DESC"; // Default terbaru
+$order_sql = "ORDER BY id DESC";
 
 if ($sort_option == 'harga_rendah') {
     $order_sql = "ORDER BY harga_per_hari ASC";

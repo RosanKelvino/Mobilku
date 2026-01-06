@@ -35,8 +35,7 @@ if (isset($_POST['submit_booking'])) {
             VALUES ('$u_id', '$m_id', '$tgl_ambil', '$tgl_kembali', '$total', 'Menunggu')";
 
     if ($conn->query($sql)) {
-        $last_id = $conn->insert_id; // Mengambil ID yang baru saja dibuat
-        // LANJUT KE PAYMENT DENGAN MEMBAWA ID TRANSAKSI
+        $last_id = $conn->insert_id;
         header("Location: payment.php?id=$last_id");
         exit;
     } else {

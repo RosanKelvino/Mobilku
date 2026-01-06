@@ -114,7 +114,7 @@ if (isset($_SESSION['user_id'])) {
         left: 0;
         width: 100%;
         height: 2px;
-        background-color: #4754e6; /* Garis bawah biru saat aktif */
+        background-color: #4754e6; 
     }
 
     .nav-actions {
