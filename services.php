@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/services.css">
     <link rel="stylesheet" href="css/about.css">
+    
 </head>
 
 <body>
@@ -138,7 +139,7 @@
                     <h2>Butuh Penawaran Khusus Perusahaan?</h2>
                     <p>Kami menyediakan kontrak sewa jangka panjang (Bulanan/Tahunan) dengan harga korporat spesial.</p>
                 </div>
-                <button class="btn-primary">Hubungi Sales</button>
+                <button class="btn-primary" onclick="openSalesModal()">Hubungi Sales</button>
             </section>
 
         </div>
@@ -160,6 +161,7 @@
         </footer>
     </div>
     <?php include 'login.php'; ?>
+    <?php include 'contact_modal.php'; ?>
 
 </body>
 

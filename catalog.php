@@ -92,11 +92,7 @@ $result = $conn->query($sql);
             border: 1px solid rgba(160, 160, 176, 0.2); 
         }
 
-        /* .filter-sidebar {
-            z-index: 20;
-            position: sticky;
-            top: 100px;
-        } */
+       
     </style>
 </head>
 <body>
